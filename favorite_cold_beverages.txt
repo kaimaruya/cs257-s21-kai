@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 Kiefer's most favorite: grape soda
 Emmy's most favorite: ginger ale
 Nina's most favorite: cold water
 Kai's most favorite:ginger ale mixed with pear juice
+=======
+Kiefer's most favorite: 
+Emmy's most favorite: 
+Nina's most favorite: cold water
+Kai's most favorite:
+>>>>>>> 52961ee8ee2d43d9cb1447dec427574a071849d0
