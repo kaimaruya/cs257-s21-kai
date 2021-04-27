@@ -14,11 +14,12 @@ h1 {
 }
 
 h3 {
-    color: rgb(192,255,0);
+   color: rgb(192,255,0);
     background-color: rgb(134,156,69);
     width: 100px;
+    float: left;
     position: relative;
-    left: 230px;
+    left: 40%;
     font-size: 50px;
 
 }
@@ -26,7 +27,8 @@ h3 {
 
 h4 {
     background-color: rgb(75, 105,127);
-    position: center;
+    float: left;
+    width: 45%;
     
 }
 
