@@ -54,6 +54,8 @@ nav li a {
 
 nav li a:hover {
     color: rgb(56, 60, 62);
+	background-color: rgb(192,255,0);
+	
 }
 
 #about {

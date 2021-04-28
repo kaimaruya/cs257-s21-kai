@@ -81,16 +81,13 @@ div.highlight {
 
 
 h1,h2,h3,h4 {
-    font-family: Verdana, Geneva, sans-serif; 
  }
  
  p {
-     font-family: Verdana, Geneva, sans-serif;
      line-height: 1.4;
  }
  
  li {
-     font-family: Verdana, Geneva, sans-serif;
      line-height: 1.4;
  }
  
@@ -99,4 +96,6 @@ h1,h2,h3,h4 {
      font-size: 1.1em;
      font-weight: bold;
  }
- 
+ #home {
+	 color: rgb(56, 60, 62);
+     background-color: rgb(192, 255, 0);
