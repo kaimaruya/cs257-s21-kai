@@ -4,6 +4,7 @@ body {
     margin-left: 5%;
     margin-right: 5%;
     font-size: 20px;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
 h1 {
@@ -26,7 +27,7 @@ h3 {
 
 h4 {
 	color: rgb(192,255,0);
-    background-color: rgb(134,156,69);
+    background-color: rgb(192,255,0);
     width: 100px;
     float: left;
     position: relative;
@@ -175,6 +176,25 @@ div.cite {
     float: right;
     margin: 10px;
 }
+
+div.selectorBox{
+    background-color: rgb(140, 187, 221);
+    width: 500px;
+    float: right;
+    padding: 10px;
+    margin: 50px;
+}
+
+div.main-content{
+    border: 4px solid rgb(140, 187, 221);
+    background-color: rgb(75, 105, 127);
+    border-radius: 5px;
+    float: left;
+    padding: 5px;
+    width: 25%;
+    margin: 30px;
+}
+
 
 div.cite:hover {
     color: rgb(56,60,62);
