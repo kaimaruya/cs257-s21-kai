@@ -1,5 +1,22 @@
 import psycopg2
 
+def connect():
+    '''
+    Establishes a connection to the database with the following credentials:
+        user - username, which is also the name of the database
+        password - the password for this database on perlman
+
+    Returns: a database connection.
+
+    Note: exits if a connection cannot be established.
+    '''
+    try:
+        connection = psycopg2.connect(database=config.database, user=config.user, password=config.password)
+    except Exception as e:
+        print("Connection error: ", e)
+        exit()
+    return connection
+
 class DataSource:
     '''
     DataSource executes all of the queries on the database.
@@ -11,45 +28,22 @@ class DataSource:
         '''
         Note: if you choose to implement the constructor, this does *not* count as one of your implemented methods.
         '''
+        cursor = connection.cursor()
+
+    def createTable(self, x, y):
+        try:
+            query = "CREATE TABLE results AS SELECT " + x + ", " + y + " FROM lonelinesssurveyshort;"
+            self.cursor.execute(query)
+            return self.cursor.fetchall()
+        except Exception as e:
+            print ("Something went wrong when executing the query: ", e)
+            return None
+
+    def convertLongerQuestionToShorter(self, longerQuestion):
         pass
 
-    def getMagnitudesInRange(self, start, end=10.0):
-        '''
-        Returns a list of all of the magnitudes from the specified starting magnitude until the specified ending magnitude.
-
-        PARAMETERS:
-            start - the low end of the magnitude range
-            end - the high end of the magnitude range (default: 10.0)
-
-        RETURN:
-            a list of all of the earthquake events with magnitudes in the specified range
-        '''
-        return []
-
-    def getQuakesOnContinent(self, continent):
-        '''
-        Returns a list of all of the earthquakes that occurred on the specified continent.
-
-        PARAMETERS:
-            continent 
-        
-        RETURN:
-            a list of all of the earthquake events that occurred on this continent
-        '''
-        return []
-
-    def getQuakesInDateRange(self, start, end):
-        '''
-        Returns a list of all of the earthquakes that occurred within the range of specified dates.
-
-        PARAMETERS:
-            start - the starting date of the range
-            end - the ending date of the range
-
-        RETURN:
-            a list of all of the earthquake events that occurred within this date range.
-        '''
-        return []
+    def createGraphBasedOn(self, x, y):
+        pass
 
 if __name__ == '__main__':
     # your code to test your function implementations goes here.

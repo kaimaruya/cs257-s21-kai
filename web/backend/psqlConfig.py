@@ -1,3 +1,3 @@
-user = 'yourUsername'
-database = 'yourUsername'
-password = 'yourPsqlPassword'
+user = 'bellonie'
+database = 'bellonie'
+password = 'recycle368bird'
