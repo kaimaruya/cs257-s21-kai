@@ -30,21 +30,27 @@ class DataSource:
         '''
         cursor = connection.cursor()
 
-    def createTable(self, x, y):
+    def createTwoVariableTable(self, x, y):
         try:
             query = "CREATE TABLE results AS SELECT " + x + ", " + y + " FROM lonelinesssurveyshort;"
-            self.cursor.execute(query)
+            self.cursor.execute(query, (x, y,))
             return self.cursor.fetchall()
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None
 
-    def convertLongerQuestionToShorter(self, longerQuestion):
-        pass
+    def createOneVariableTable(self, x):
+        try:
+            query = "CREATE TABLE results AS SELECT " + x + " FROM lonelinesssurveyshort;"
+            self.cursor.execute(query, (x,))
+            return self.cursor.fetchall()
+        except Exception as e:
+            print ("Something went wrong when executing the query: ", e)
+            return None
 
     def createGraphBasedOn(self, x, y):
         pass
 
 if __name__ == '__main__':
     # your code to test your function implementations goes here.
-    pass
+    print(createTwoVariableTable("LonelinessFrequency", "LeftOut"))
