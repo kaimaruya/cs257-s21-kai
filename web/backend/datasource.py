@@ -31,9 +31,12 @@ class DataSource:
     def getTwoVariables(self, x, y):
         '''
         Query the database for two variables and return the resulting columns.
-        :param x: Column name for the first variable (e.g. "LonelinessFrequency")
-        :param y: Column name for the second variable (e.g. "LeftOut")
-        :return: A list containing both of the columns specified by x and y
+
+        Args:
+            x (str): Column name for the first variable (e.g. "LonelinessFrequency")
+            y (str): Column name for the second variable (e.g. "LeftOut")
+        Returns:
+            list: A list containing both of the columns specified by x and y
         '''
         try:
             query = "SELECT " + x + ", " + y + " FROM lonelinesssurveyshort;"
@@ -46,8 +49,11 @@ class DataSource:
     def getOneVariable(self, x):
         '''
         Query the database for one variable and return the resulting column.
-        :param x: Column name of the desired variable (e.g. "Lonely")
-        :return: A list containing the specified column
+
+        Args:
+            x (str): Column name of the desired variable (e.g. "Lonely")
+        Returns:
+            list: A list containing the specified column
         '''
         try:
             query = "SELECT " + x + " FROM lonelinesssurveyshort;"
@@ -60,9 +66,12 @@ class DataSource:
     def createGraphBasedOn(self, x, y):
         '''
         Create a graph based on two variables.
-        :param x: x-axis variable
-        :param y: y-axis variable
-        :return: An image of the graph
+        
+        Args:
+            x (str): x-axis variable
+            y (str): y-axis variable
+        Returns:
+            An image of the graph. Filetype is still TBD.
         '''
         pass
 
