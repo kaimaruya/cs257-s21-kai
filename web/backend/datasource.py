@@ -30,7 +30,7 @@ class DataSource:
 
     def createTwoVariableTable(self, x, y):
         try:
-            query = "CREATE TABLE results AS SELECT " + x + ", " + y + " FROM lonelinesssurveyshort;"
+            query = "SELECT " + x + ", " + y + " FROM lonelinesssurveyshort;"
             self.cursor.execute(query, (x, y,))
             return self.cursor.fetchall()
         except Exception as e:
