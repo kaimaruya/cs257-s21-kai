@@ -11,7 +11,7 @@ def connect():
     Note: exits if a connection cannot be established.
     '''
     try:
-        connection = psycopg2.connect(database=config.database, user=config.user, password=config.password)
+        connection = psycopg2.connect(database="bellonie", user="bellonie", password="recycle368bird")
     except Exception as e:
         print("Connection error: ", e)
         exit()
@@ -47,12 +47,14 @@ class DataSource:
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None
-
+        
+    '''Framework for create graph function that will be implemented later'''
     def createGraphBasedOn(self, x, y):
         pass
 
 if __name__ == '__main__':
     # your code to test your function implementations goes here.
     connect = connect()
+    #Testing two variable table API
     print(DataSource.createTwoVariableTable(connect, "LonelinessFrequency", "LeftOut"))
     connection.close()
