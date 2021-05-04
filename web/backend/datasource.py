@@ -55,5 +55,5 @@ if __name__ == '__main__':
     connection = connect()
     data = DataSource()
     #Testing two variable table API
-    print(data.createTwoVariableTable(connect, "LonelinessFrequency", "LeftOut"))
+    print(data.createTwoVariableTable(data, "LonelinessFrequency", "LeftOut"))
     connection.close()
