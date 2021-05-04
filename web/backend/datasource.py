@@ -53,6 +53,7 @@ class DataSource:
 if __name__ == '__main__':
     # your code to test your function implementations goes here.
     connection = connect()
+    data = DataSource()
     #Testing two variable table API
-    print(DataSource.createTwoVariableTable(connect, "LonelinessFrequency", "LeftOut"))
+    print(data.createTwoVariableTable(connect, "LonelinessFrequency", "LeftOut"))
     connection.close()
