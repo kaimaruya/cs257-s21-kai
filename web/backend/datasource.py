@@ -24,11 +24,17 @@ class DataSource:
 
     def __init__(self):
         '''
-        Note: if you choose to implement the constructor, this does *not* count as one of your implemented methods.
+        Constructor for the DataSource class
         '''
         self.cursor = connection.cursor()
 
-    def createTwoVariableTable(self, x, y):
+    def getTwoVariables(self, x, y):
+        '''
+        Query the database for two variables and return the resulting columns.
+        :param x: Column name for the first variable (e.g. "LonelinessFrequency")
+        :param y: Column name for the second variable (e.g. "LeftOut")
+        :return: A list containing both of the columns specified by x and y
+        '''
         try:
             query = "SELECT " + x + ", " + y + " FROM lonelinesssurveyshort;"
             self.cursor.execute(query, (x, y,))
@@ -37,7 +43,12 @@ class DataSource:
             print ("Something went wrong when executing the query: ", e)
             return None
 
-    def createOneVariableTable(self, x):
+    def getOneVariable(self, x):
+        '''
+        Query the database for one variable and return the resulting column.
+        :param x: Column name of the desired variable (e.g. "Lonely")
+        :return: A list containing the specified column
+        '''
         try:
             query = "SELECT " + x + " FROM lonelinesssurveyshort;"
             self.cursor.execute(query, (x,))
@@ -45,19 +56,25 @@ class DataSource:
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None
-        
-    '''Framework for create graph function that will be implemented later'''
+
     def createGraphBasedOn(self, x, y):
+        '''
+        Create a graph based on two variables.
+        :param x: x-axis variable
+        :param y: y-axis variable
+        :return: An image of the graph
+        '''
         pass
 
 if __name__ == '__main__':
-    # your code to test your function implementations goes here.
+    # Your code to test your function implementations goes here.
     connection = connect()
+    # Create a DataSource() object to execute our queries
     data = DataSource()
-    #Testing two variable table API
-    print("Testing Two Variable Table")
-    print(data.createTwoVariableTable("LonelinessFrequency", "LeftOut"))
-    #Testing one variable table API
-    print("Testing One Variable Table")
-    print(data.createOneVariableTable("Lonely"))
+    # Test getTwoVariables() with columns titled "LonelinessFrequency" and "LeftOut"
+    print("Testing Query for Two Variables")
+    print(data.getTwoVariables("LonelinessFrequency", "LeftOut"))
+    # Test getOneVariable() with the column titled "Lonely"
+    print("Testing Query for One Variable")
+    print(data.getOneVariable("Lonely"))
     connection.close()
