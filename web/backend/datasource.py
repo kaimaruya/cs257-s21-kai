@@ -9,7 +9,7 @@ def connect():
     Note: exits if a connection cannot be established.
     '''
     try:
-        connection = psycopg2.connect(database="bellonie", user="bellonie", password="recycle368bird")
+        connection = psycopg2.connect(database="bellonie", user="bellonie", password="recycle368bird", host="localhost")
     except Exception as e:
         print("Connection error: ", e)
         exit()
@@ -66,7 +66,7 @@ class DataSource:
     def createGraphBasedOn(self, x, y):
         '''
         Create a graph based on two variables.
-        
+
         Args:
             x (str): x-axis variable
             y (str): y-axis variable
