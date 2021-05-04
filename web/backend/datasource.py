@@ -39,7 +39,7 @@ class DataSource:
 
     def createOneVariableTable(self, x):
         try:
-            query = "CREATE TABLE results AS SELECT " + x + " FROM lonelinesssurveyshort;"
+            query = "SELECT " + x + " FROM lonelinesssurveyshort;"
             self.cursor.execute(query, (x,))
             return self.cursor.fetchall()
         except Exception as e:
@@ -55,5 +55,9 @@ if __name__ == '__main__':
     connection = connect()
     data = DataSource()
     #Testing two variable table API
+    print("Testing Two Variable Table")
     print(data.createTwoVariableTable("LonelinessFrequency", "LeftOut"))
+    #Testing one variable table API
+    print("Testing One Variable Table")
+    print(data.createOneVariableTable("Lonely"))
     connection.close()
