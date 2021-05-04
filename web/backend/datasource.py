@@ -26,7 +26,7 @@ class DataSource:
         '''
         Note: if you choose to implement the constructor, this does *not* count as one of your implemented methods.
         '''
-        cursor = connection.cursor()
+        self.cursor = connection.cursor()
 
     def createTwoVariableTable(self, x, y):
         try:
