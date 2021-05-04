@@ -5,9 +5,7 @@ def connect():
     Establishes a connection to the database with the following credentials:
         user - username, which is also the name of the database
         password - the password for this database on perlman
-
     Returns: a database connection.
-
     Note: exits if a connection cannot be established.
     '''
     try:
@@ -53,4 +51,6 @@ class DataSource:
 
 if __name__ == '__main__':
     # your code to test your function implementations goes here.
-    print(createTwoVariableTable("LonelinessFrequency", "LeftOut"))
+    connect = connect()
+    print(DataSource.createTwoVariableTable(connect, "LonelinessFrequency", "LeftOut"))
+    connection.close()
