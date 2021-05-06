@@ -47,7 +47,11 @@ class DataSource:
             return None
         
     '''Framework for create graph function that will be implemented later'''
-    def createGraphBasedOn(self, x, y):
+    def createGraphBasedOn(self, table):
+        pass
+    
+    '''Framework for converting long answer to short'''
+    def convertLongToShort():
         pass
 
 if __name__ == '__main__':

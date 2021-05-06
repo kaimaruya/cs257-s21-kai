@@ -138,43 +138,33 @@ img {
     border: 20px solid rgb(140,187,221);
 }
 
-div.back {
+button:hover{
+    cursor: pointer;
+}
+
+button.back{
     background-color: rgb(140,187,221);
-    font-size: 40px;
-    text-align: center;
-    width: 25%;
-    float: right;
-    margin: 10px;
+    margin: 30px;
+    font-size: 30px;
+    color: rgb(56, 60, 62);
 }
 
-div.back:hover {
-    color: rgb(56,60,62);
-    background-color: rgb(192, 255, 0);
-}
-
-div.save {
+button.save{
     background-color: rgb(140,187,221);
-    font-size: 40px;
-    color: rgb(56,60,62);
-    text-align: center;
-    width: 25%;
-    float: right;
-    margin: 10px;
-}
-
-div.save:hover {
-    color: rgb(56,60,62);
-    background-color: rgb(192, 255, 0);
+    margin:30px;
+    font-size: 30px;
+    color: rgb(56, 60, 62);
 }
 
 div.cite {
     background-color: rgb(140,187,221);
     font-size: 15px;
     color:rgb(56,60,62);
-    text-align: center;
-    width: 25%;
-    float: right;
+    width: 100%;
+    float:left;
+    padding: 10px;
     margin: 10px;
+    text-align: center;
 }
 
 div.selectorBox{
@@ -195,12 +185,38 @@ div.main-content{
     margin: 30px;
 }
 
+figcaption {
+    color: rgb(230,229,224);
+}
 
-div.cite:hover {
-    color: rgb(56,60,62);
+.dropdown {
+  position: relative;
+  display: inline-block;
+  padding: 33px;
+}
+
+button.submit{
+    margin: 33px;
+    font-size: 20px;
     background-color: rgb(192, 255, 0);
 }
 
-figcaption {
-    color: rgb(230,229,224);
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(75, 105, 127);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  font-size: 10px;
+}
+
+.dropdown-content p:hover {
+    background-color: rgb(192, 255, 0);
+    color: rgb(56,60,62);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
