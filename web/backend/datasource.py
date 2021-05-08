@@ -39,7 +39,7 @@ class DataSource:
         Returns:
             list: The output of either getTwoVariables() or getOneVariable()
         '''
-        pass
+        return getTwoVariables(x,y)
 
     def getTwoVariables(self, x, y):
         '''
