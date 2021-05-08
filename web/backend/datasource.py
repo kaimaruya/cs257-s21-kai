@@ -39,6 +39,8 @@ class DataSource:
         Returns:
             list: The output of either getTwoVariables() or getOneVariable()
         '''
+        if x == "None" and y == "None":
+            return "Error: Please select at least one variable"
         if y == "None" or y == x:
             return self.getOneVariable(x)
         elif x == "None":
