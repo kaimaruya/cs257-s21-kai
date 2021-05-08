@@ -14,6 +14,12 @@ class TestDataSource (unittest.TestCase):
         var2 = "None"
         data = DataSource()
         self.assertEqual(data.chooseMethod(var1, var2), data.getOneVariable(var1))
+        
+    def test_same_variable(self):
+        var1 = "Internet"
+        var2 = "Internet"
+        data = DataSource()
+        self.assertEqual(data.chooseMethod(var1, var2), data.getOneVariable(var1))
 
 if __name__ == "__main__":
     unittest.main()
