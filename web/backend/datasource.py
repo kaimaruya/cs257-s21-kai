@@ -41,6 +41,8 @@ class DataSource:
         '''
         if y == "None" or y == x:
             return self.getOneVariable(x)
+        elif x == "None":
+            return self.getOneVariable(y)
         return self.getTwoVariables(x,y)
 
     def getTwoVariables(self, x, y):
