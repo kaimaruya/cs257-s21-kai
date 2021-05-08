@@ -26,6 +26,12 @@ class TestDataSource (unittest.TestCase):
         var2 = "Drugs"
         data = DataSource()
         self.assertEqual(data.chooseMethod(var1, var2), data.getOneVariable(var2))
+        
+    def test_both_none(self):
+        var1 = "None"
+        var2 = "None"
+        data = DataSource()
+        self.assertEqual(data.chooseMethod(var1, var2), "Error: Please select at least one variable")
 
 if __name__ == "__main__":
     unittest.main()
