@@ -39,6 +39,8 @@ class DataSource:
         Returns:
             list: The output of either getTwoVariables() or getOneVariable()
         '''
+        if y == "None":
+            return self.getOneVariable(x)
         return self.getTwoVariables(x,y)
 
     def getTwoVariables(self, x, y):
