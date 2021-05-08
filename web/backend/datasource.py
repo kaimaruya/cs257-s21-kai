@@ -26,6 +26,7 @@ class DataSource:
         '''
         Constructor for the DataSource class
         '''
+        connection = connect()
         self.cursor = connection.cursor()
 
     def chooseMethod(self, x, y):
@@ -89,7 +90,6 @@ class DataSource:
 
 if __name__ == '__main__':
     # Your code to test your function implementations goes here.
-    connection = connect()
     # Create a DataSource() object to execute our queries
     data = DataSource()
     # Test getTwoVariables() with columns titled "LonelinessFrequency" and "LeftOut"
