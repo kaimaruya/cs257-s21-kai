@@ -28,6 +28,18 @@ class DataSource:
         '''
         self.cursor = connection.cursor()
 
+    def chooseMethod(self, x, y):
+        '''
+        Determine whether to query two variables or one variable and call the corresponding function.
+
+        Args:
+            x (str): Column name for the first variable (e.g. "LonelinessFrequency")
+            y (str): Column name for the second variable (e.g. "LeftOut")
+        Returns:
+            list: The output of either getTwoVariables() or getOneVariable()
+        '''
+        pass
+
     def getTwoVariables(self, x, y):
         '''
         Query the database for two variables and return the resulting columns.
