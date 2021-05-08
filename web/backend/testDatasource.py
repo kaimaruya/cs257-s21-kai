@@ -9,7 +9,7 @@ class TestDataSource (unittest.TestCase):
         data = DataSource()
         self.assertEqual(data.chooseMethod(var1, var2), data.getTwoVariables(var1, var2))
         
-    def test_one_variable(self):
+    def test_one_variable_x(self):
         var1 = "Internet"
         var2 = "None"
         data = DataSource()
@@ -20,6 +20,12 @@ class TestDataSource (unittest.TestCase):
         var2 = "Internet"
         data = DataSource()
         self.assertEqual(data.chooseMethod(var1, var2), data.getOneVariable(var1))
+        
+    def test_one_variable_y(self):
+        var1 = "None"
+        var2 = "Drugs"
+        data = DataSource()
+        self.assertEqual(data.chooseMethod(var1, var2), data.getOneVariable(var2))
 
 if __name__ == "__main__":
     unittest.main()
