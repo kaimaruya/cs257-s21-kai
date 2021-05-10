@@ -1,7 +1,7 @@
 import unittest
 from datasource import *
 
-class TestDataSource (unittest.TestCase):
+class  DataSourceTester (unittest.TestCase):
 
     def test_two_variables(self):
         var1 = "Internet"
