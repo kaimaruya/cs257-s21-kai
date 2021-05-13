@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Parameter passing example</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+<h1>Well, hello!</h1>   
+
+<p>It's nice to meet you, {{ results.firstName }} {{ results.lastName }}!</p>
+{% if results.actualNickname %}
+    <p>Or, should I call you {{ results.actualNickname }}?<p>
+{% endif %}
+
+{% if results.flavor == 'none' %}
+    <p>I'm sorry you don't like ice cream. Maybe we can go for a walk instead?</p>
+{% else %}
+    <p>Let's go out sometime for some {{ results.flavor }} ice cream, shall we?</p>
+{% endif %}
+</body>
+</div>
+</html>
