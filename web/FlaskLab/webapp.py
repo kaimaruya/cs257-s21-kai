@@ -30,11 +30,11 @@ def inPlaceHome():
     '''
     htmlStr = '<html lang="en">' + \
     '<head>' + \
-    '  <title>Hello</title>' + \
+    '  <title>Hello :)</title>' + \
     '</head>' + \
     '<body>' + \
-    '  <h1>Hello</h1>' + \
-    '  <p>Welcome to your first Flask adventure!</p>' + \
+    '  <h1>Hello :)</h1>' + \
+    '  <p>Welcome to our very first attempt at using Flask! :3</p>' + \
     '</body>' + \
     '</html>'
     return htmlStr
