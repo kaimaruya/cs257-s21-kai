@@ -2,3 +2,11 @@ body {
     background: lightBlue;
     margin: 20px;
 }
+
+div {
+    background: darkBlue;
+    color: cornsilk;
+    float: right;
+    padding: 10px;
+    margin: 10px;
+}
