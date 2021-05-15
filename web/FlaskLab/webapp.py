@@ -71,7 +71,7 @@ def greetAgain():
     year = request.args.get('classYear')
     num = request.args.get('num')
     return render_template('biggerGreet.html',
-                           person=person, year=year)
+                           person=person, year=year, num=num)
 
 @app.route('/form')
 def homeWithForm():
