@@ -17,7 +17,9 @@
     <p>I'm sorry you don't like ice cream. Maybe we can go for a walk instead?</p>
 {% else %}
     <p>Let's go out sometime for some {{ results.flavor }} ice cream, shall we?</p>
+    <div>
+    <img alt="picture of icecream" src="{{ url_for('static', filename='icecream.jpg') }}" />
+    </div>
 {% endif %}
 </body>
-</div>
 </html>
