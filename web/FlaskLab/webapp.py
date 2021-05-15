@@ -69,6 +69,7 @@ def greetAgain():
     '''
     person = request.args.get('person')
     year = request.args.get('classYear')
+    attemptNumber = request.args.get('num')
     return render_template('biggerGreet.html',
                            person=person, year=year)
 
