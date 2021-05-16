@@ -16,6 +16,10 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 def home():
     return render_template('homepage.html')
 
+@app.route('/aboutdata')
+def home():
+    return render_template('aboutdata.html')
+
 @app.route('/results', methods=['POST', 'GET'])
 def searchResult():
     '''
