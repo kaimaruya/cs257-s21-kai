@@ -96,13 +96,11 @@ class DataSource:
         pass
 
 if __name__ == '__main__':
-    # Your code to test your function implementations goes here.
-    # Create a DataSource() object to execute our queries
-    data = DataSource()
     # Test getTwoVariables() with columns titled "LonelinessFrequency" and "LeftOut"
     print("Testing Query for Two Variables")
-    print(data.getTwoVariables("LonelinessFrequency", "LeftOut"))
+    data1 = DataSource()
+    print(data1.getTwoVariables("LonelinessFrequency", "LeftOut"))
     # Test getOneVariable() with the column titled "Lonely"
     print("Testing Query for One Variable")
-    print(data.getOneVariable("Lonely"))
-    connection.close()
+    data2 = DataSource()
+    print(data2.getOneVariable("Lonely"))
