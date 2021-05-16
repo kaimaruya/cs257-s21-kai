@@ -17,7 +17,7 @@ def home():
     return render_template('homepage.html')
 
 @app.route('/aboutdata')
-def home():
+def aboutData():
     return render_template('aboutdata.html')
 
 @app.route('/results', methods=['POST', 'GET'])
