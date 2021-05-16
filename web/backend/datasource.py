@@ -1,20 +1,5 @@
 import psycopg2
 
-def connect():
-    '''
-    Establishes a connection to the database with the following credentials:
-        user - username, which is also the name of the database
-        password - the password for this database on perlman
-    Returns: a database connection.
-    Note: exits if a connection cannot be established.
-    '''
-    try:
-        connection = psycopg2.connect(database="bellonie", user="bellonie", password="recycle368bird", host="localhost")
-    except Exception as e:
-        print("Connection error: ", e)
-        exit()
-    return connection
-
 class DataSource:
     '''
     DataSource executes all of the queries on the database.
@@ -26,8 +11,24 @@ class DataSource:
         '''
         Constructor for the DataSource class
         '''
-        connection = connect()
+        connection = self.connect()
         self.cursor = connection.cursor()
+
+    def connect(self):
+        '''
+        Establishes a connection to the database with the following credentials:
+            user - username, which is also the name of the database
+            password - the password for this database on perlman
+        Returns: a database connection.
+        Note: exits if a connection cannot be established.
+        '''
+        try:
+            connection = psycopg2.connect(database="bellonie", user="bellonie", password="recycle368bird",
+                                          host="localhost")
+        except Exception as e:
+            print("Connection error: ", e)
+            exit()
+        return connection
 
     def chooseMethod(self, x, y):
         '''
