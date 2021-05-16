@@ -20,7 +20,7 @@ def home():
 def aboutData():
     return render_template('aboutdata.html')
 
-@app.route('/results', methods=['POST', 'GET'])
+@app.route('/sampleresults', methods=['POST', 'GET'])
 def searchResult():
     '''
     This method is executed once you submit the simple form. It embeds the form responses
