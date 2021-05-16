@@ -31,7 +31,7 @@ def searchResult():
 
         # Here is where you would call one or more database methods with the form data.
 
-    return render_template('results.html', results=result)
+    return render_template('sampleresults.html', results=result)
 
 '''
 Run the program by typing 'python3 localhost [port]', where [port] is one of 
