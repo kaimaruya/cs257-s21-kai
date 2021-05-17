@@ -12,7 +12,6 @@ class DataSource:
         Constructor for the DataSource class
         '''
         connection = self.connect()
-        self.cursor = connection.cursor()
 
     def connect(self):
         '''
@@ -58,10 +57,11 @@ class DataSource:
         Returns:
             list: A list containing both of the columns specified by x and y
         '''
+        cursor = connection.cursor()
         try:
             query = "SELECT " + x + ", " + y + " FROM lonelinesssurveyshort;"
-            self.cursor.execute(query, (x, y,))
-            return self.cursor.fetchall()
+            cursor.execute(query, (x, y,))
+            return cursor.fetchall()
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None
@@ -75,10 +75,11 @@ class DataSource:
         Returns:
             list: A list containing the specified column
         '''
+        cursor = connection.cursor()
         try:
             query = "SELECT " + x + " FROM lonelinesssurveyshort;"
-            self.cursor.execute(query, (x,))
-            return self.cursor.fetchall()
+            cursor.execute(query, (x,))
+            return cursor.fetchall()
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None

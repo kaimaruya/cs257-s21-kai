@@ -17,7 +17,8 @@
 	<!-- This highlight part is for the query. We want to have a scroll bar so people can select questions(x, y variables) -->
 	<div  class="selectorBox">
 		<h2 id="data">Select Questions and Make a Graph</h2>
-		
+
+<form action="/results" method="post">
 <p><label for="xvar">Select Variable X</label></p>
         <select id="xvar" name="xvar" size="1">
         <option value="None">None</option>
@@ -36,6 +37,7 @@
         <option value="Employment">Are you satisfied or dissatisfied with your current employment situation?</option>
 </select><br><br>
         <button class="submit" onclick="location.href='sampleresults'">GO!</button>
+        </form>
 	</div>
 
 	<div class="content" class = "homebase">

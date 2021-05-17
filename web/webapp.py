@@ -26,12 +26,13 @@ def searchResult():
     This method is executed once you submit the simple form. It embeds the form responses
     into a web page.
     '''
-    #if request.method == 'POST':
-        #result = request.form
+    if request.method == 'POST':
+        result = request.form
+        data = DataSource()
+        table = data.chooseMethod(result.xvar, result.yvar)
+        #data.makeGraph(table)
 
-        # Here is where you would call one or more database methods with the form data.
-
-    return render_template('sampleresults.html', results=result)
+    return render_template('sampleresults.html', results=table)
 
 '''
 Run the program by typing 'python3 localhost [port]', where [port] is one of 
