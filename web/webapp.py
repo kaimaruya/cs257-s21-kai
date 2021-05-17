@@ -34,7 +34,7 @@ def searchResult():
     if request.method == 'POST':
         result = request.form
         data = DataSource()
-        table = data.chooseMethod(result[‘xvar’], result[‘yvar’])
+        table = data.chooseMethod(result["xvar"], result["yvar"])
         #data.makeGraph(table)
 
     return render_template('sampleresults.html', results=table)
