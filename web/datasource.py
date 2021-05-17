@@ -42,10 +42,10 @@ class DataSource:
         if x == "None" and y == "None":
             return "Error: Please select at least one variable"
         elif y == "None" or y == x:
-            return self.getOneVariable(x)
+            return self.queryOneVariable(x)
         elif x == "None":
-            return self.getOneVariable(y)
-        return self.getTwoVariables(x,y)
+            return self.queryOneVariable(y)
+        return self.queryTwoVariables(x,y)
 
     def queryTwoVariables(self, x, y):
         '''
