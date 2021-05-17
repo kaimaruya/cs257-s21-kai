@@ -57,7 +57,7 @@ class DataSource:
         Returns:
             list: A list containing both of the columns specified by x and y
         '''
-        cursor = connection.cursor()
+        cursor = self.connection.cursor()
         try:
             query = "SELECT " + x + ", " + y + " FROM lonelinesssurveyshort;"
             cursor.execute(query, (x, y,))
@@ -75,7 +75,7 @@ class DataSource:
         Returns:
             list: A list containing the specified column
         '''
-        cursor = connection.cursor()
+        cursor = self.connection.cursor()
         try:
             query = "SELECT " + x + " FROM lonelinesssurveyshort;"
             cursor.execute(query, (x,))
