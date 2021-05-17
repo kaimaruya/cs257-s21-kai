@@ -11,7 +11,7 @@ class DataSource:
         '''
         Constructor for the DataSource class
         '''
-        connection = self.connect()
+        self.connection = self.connect()
 
     def connect(self):
         '''
