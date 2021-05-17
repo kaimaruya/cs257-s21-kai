@@ -47,7 +47,7 @@ class DataSource:
             return self.getOneVariable(y)
         return self.getTwoVariables(x,y)
 
-    def getTwoVariables(self, x, y):
+    def queryTwoVariables(self, x, y):
         '''
         Query the database for two variables and return the resulting columns.
 
@@ -66,7 +66,7 @@ class DataSource:
             print ("Something went wrong when executing the query: ", e)
             return None
 
-    def getOneVariable(self, x):
+    def queryOneVariable(self, x):
         '''
         Query the database for one variable and return the resulting column.
 
@@ -100,7 +100,8 @@ if __name__ == '__main__':
     # Test getTwoVariables() with columns titled "LonelinessFrequency" and "LeftOut"
     print("Testing Query for Two Variables")
     data1 = DataSource()
-    print(data1.getTwoVariables("LonlinessFrequency", "LeftOut"))
+    print(data1.getTwoVariables("LonelinessFrequency", "LeftOut"))
+    
     # Test getOneVariable() with the column titled "Lonely"
     print("Testing Query for One Variable")
     data2 = DataSource()
