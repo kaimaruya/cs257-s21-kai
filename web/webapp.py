@@ -17,6 +17,10 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 def home():
     return render_template('homepage.html')
 
+@app.route('/homepage')
+def home2():
+    return render_template('homepage.html')
+
 @app.route('/aboutdata')
 def aboutData():
     return render_template('aboutdata.html')
@@ -30,7 +34,7 @@ def searchResult():
     if request.method == 'POST':
         result = request.form
         data = DataSource()
-        table = 1;
+        table = data.chooseMethod(result.xvar, result.yvar)
         #data.makeGraph(table)
 
     return render_template('sampleresults.html', results=table)
