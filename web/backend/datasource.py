@@ -99,8 +99,9 @@ class DataSource:
 if __name__ == '__main__':
     # Test getTwoVariables() with columns titled "LonelinessFrequency" and "LeftOut"
     print("Testing Query for Two Variables")
-    data = DataSource()
-    print(data.getTwoVariables("LonlinessFrequency", "LeftOut"))
+    data1 = DataSource()
+    print(data1.getTwoVariables("LonlinessFrequency", "LeftOut"))
     # Test getOneVariable() with the column titled "Lonely"
     print("Testing Query for One Variable")
-    print(data.getOneVariable("Lonely"))
+    data2 = DataSource()
+    print(data2.getOneVariable("Lonely"))
