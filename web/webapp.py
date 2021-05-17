@@ -6,7 +6,6 @@ import flask
 from flask import render_template, request, url_for
 import json
 import sys
-from datasource import
 
 app = flask.Flask(__name__)
 
