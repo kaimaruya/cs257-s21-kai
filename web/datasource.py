@@ -112,7 +112,7 @@ class DataSource:
             y[i] = y[i] + 1
             
         plt.bar(x,y)
-        plt.savefig("/static/graph.png")
+        plt.savefig("static/graph.png")
         
         pass
 
