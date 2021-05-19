@@ -1,4 +1,6 @@
 import psycopg2
+import matplotlib
+import matplotlib.pyplot as plt
 
 class DataSource:
     '''
@@ -84,7 +86,7 @@ class DataSource:
             print ("Something went wrong when executing the query: ", e)
             return None
 
-    def createGraphBasedOn(self, x, y):
+    def createGraph(self, x, y):
         '''
         Create a graph based on two variables.
 
@@ -94,6 +96,24 @@ class DataSource:
         Returns:
             An image of the graph. Filetype is still TBD.
         '''
+        
+        queryResult = self.chooseMethod(x,y)
+        
+        x = []
+        y = []
+
+        for row in query:
+            if row[0] not in x:
+                x.append(str(row[0]))
+                y.append(1)
+            i = 0
+            while row[0] != x[i]:
+                i = i + 1
+            y[i] = y[i] + 1
+            
+        fig = plt.bar(x,y)
+        fig.savefig("/static/graph.png")
+        
         pass
 
 if __name__ == '__main__':
