@@ -111,8 +111,8 @@ class DataSource:
                 i = i + 1
             y[i] = y[i] + 1
             
-        fig = plt.bar(x,y)
-        fig.savefig("/static/graph.png")
+        plt.bar(x,y)
+        plt.savefig("/static/graph.png")
         
         pass
 
