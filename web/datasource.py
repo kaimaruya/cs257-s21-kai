@@ -110,7 +110,7 @@ class DataSource:
             while row[0] != x[i]:
                 i = i + 1
             y[i] = y[i] + 1
-            
+        plt.clf()
         plt.bar(x,y)
         plt.savefig("static/graph.png")
         
