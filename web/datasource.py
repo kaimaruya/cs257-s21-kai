@@ -102,7 +102,7 @@ class DataSource:
         x = []
         y = []
 
-        for row in query:
+        for row in queryResult:
             if row[0] not in x:
                 x.append(str(row[0]))
                 y.append(1)
