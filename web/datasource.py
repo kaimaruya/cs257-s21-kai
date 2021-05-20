@@ -110,11 +110,11 @@ class DataSource:
             while row[0] != x[i]:
                 i = i + 1
             y[i] = y[i] + 1
+        plt.rc('xtick', labelsize=5)
         plt.clf()
         plt.bar(x,y)
-        plt.rc('xtick', labelsize=5)
-        plt.xlabel('xlabel')
-        plt.ylabel('ylabel')
+        plt.xlabel(x)
+        plt.ylabel(y)
         plt.savefig("static/graph.png")
         
         pass
