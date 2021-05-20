@@ -110,11 +110,18 @@ class DataSource:
             while row[0] != labels[i]:
                 i = i + 1
             numbers[i] = numbers[i] + 1
+            
         plt.rc('xtick', labelsize=5)
         plt.clf()
         plt.bar(labels, numbers)
-        plt.xlabel(x)
-        plt.ylabel(y)
+        
+        if x != "None":
+            plt.title(x)
+        elif y != "None":
+            plt.title(y)
+        plt.xlabel("Responses")
+        plt.ylabel("Number of Answers")
+        
         plt.savefig("static/graph.png")
         
         pass
