@@ -113,6 +113,8 @@ class DataSource:
         plt.clf()
         plt.bar(x,y)
         plt.rc('xtick', labelsize=5)
+        plt.xlabel('xlabel')
+        plt.ylabel('ylabel')
         plt.savefig("static/graph.png")
         
         pass
