@@ -119,8 +119,8 @@ class DataSource:
             plt.title(x)
         elif y != "None":
             plt.title(y)
-        plt.xlabel("Responses")
-        plt.ylabel("Number of Answers")
+        plt.xlabel("Possible Responses")
+        plt.ylabel("People")
         
         plt.savefig("static/graph.png")
         
