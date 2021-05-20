@@ -99,20 +99,20 @@ class DataSource:
         
         queryResult = self.chooseMethod(x,y)
         
-        x = []
-        y = []
+        labels = []
+        numbers = []
 
         for row in queryResult:
-            if row[0] not in x:
-                x.append(str(row[0]))
-                y.append(1)
+            if row[0] not in labels:
+                labels.append(str(row[0]))
+                numbers.append(1)
             i = 0
-            while row[0] != x[i]:
+            while row[0] != labels[i]:
                 i = i + 1
-            y[i] = y[i] + 1
+            numbers[i] = numbers[i] + 1
         plt.rc('xtick', labelsize=5)
         plt.clf()
-        plt.bar(x,y)
+        plt.bar(labels, numbers)
         plt.xlabel(x)
         plt.ylabel(y)
         plt.savefig("static/graph.png")
