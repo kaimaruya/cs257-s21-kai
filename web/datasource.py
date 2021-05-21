@@ -8,7 +8,7 @@ class DataSource:
     It also formats the data to send back to the frontend, typically in a list
     or some other collection or object.
     '''
-    oneVariable = False
+    global oneVariable = False
 
     def __init__(self):
         '''
