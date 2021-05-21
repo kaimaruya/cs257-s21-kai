@@ -146,6 +146,7 @@ class DataSource:
                     yaxis.append(row[1])
                     density.append(1)
             plt.rc('xtick', labelsize=5)
+            plt.rc('ytick', labelsize=5)
             plt.clf()
             plt.scatter(xaxis, yaxis, s=density)
         
