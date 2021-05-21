@@ -106,7 +106,7 @@ class DataSource:
         yaxis = []
         density = []
         
-        if oneVariable = True:
+        if oneVariable == True:
             for row in queryResult:
                 if row[0] not in xaxis:
                     xaxis.append(str(row[0]))
