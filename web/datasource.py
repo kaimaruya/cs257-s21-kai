@@ -8,6 +8,7 @@ class DataSource:
     It also formats the data to send back to the frontend, typically in a list
     or some other collection or object.
     '''
+    oneVariable = False
 
     def __init__(self):
         '''
@@ -44,8 +45,10 @@ class DataSource:
         if x == "None" and y == "None":
             return "Error: Please select at least one variable"
         elif y == "None" or y == x:
+            oneVariable = True
             return self.queryOneVariable(x)
         elif x == "None":
+            oneVariable = True
             return self.queryOneVariable(y)
         return self.queryTwoVariables(x,y)
 
@@ -99,28 +102,52 @@ class DataSource:
         
         queryResult = self.chooseMethod(x,y)
         
-        labels = []
-        numbers = []
-
-        for row in queryResult:
-            if row[0] not in labels:
-                labels.append(str(row[0]))
-                numbers.append(1)
-            i = 0
-            while row[0] != labels[i]:
-                i = i + 1
-            numbers[i] = numbers[i] + 1
-            
-        plt.rc('xtick', labelsize=5)
-        plt.clf()
-        plt.bar(labels, numbers)
+        xaxis = []
+        yaxis = []
+        density = []
         
-        if x != "None":
-            plt.title(x)
-        elif y != "None":
-            plt.title(y)
-        plt.xlabel("Possible Responses")
-        plt.ylabel("People")
+        if oneVariable = True:
+            for row in queryResult:
+                if row[0] not in xaxis:
+                    xaxis.append(str(row[0]))
+                    yaxis.append(1)
+                i = 0
+                while row[0] != xaxis[i]:
+                    i = i + 1
+                yaxis[i] = yaxis[i] + 1
+
+            plt.rc('xtick', labelsize=5)
+            plt.clf()
+            plt.bar(xaxis, yaxis)
+
+            if x != "None":
+                plt.title(x)
+            elif y != "None":
+                plt.title(y)
+            plt.xlabel("Possible Responses")
+            plt.ylabel("People")
+        
+        else:
+            for row in queryResult:
+                if row[0] in xaxis:
+                    i = 0
+                    match = False
+                    while i < len(xaxis):
+                        if row[0] == xaxis[i] and row[1] == yaxis[i]:
+                        density[i] = density[i] + 1
+                        match = True
+                    i = i + 1
+                    if match == False:
+                        xaxis.append(row[0])
+                        yaxis.append(row[1])
+                        density.append(1)
+                else:
+                    xaxis.append(row[0])
+                    yaxis.append(row[1])
+                    density.append(1)
+            plt.rc('xtick', labelsize=5)
+            plt.clf()
+            plt.bar(xaxis, yaxis, s=density)
         
         plt.savefig("static/graph.png")
         
