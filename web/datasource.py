@@ -8,13 +8,13 @@ class DataSource:
     It also formats the data to send back to the frontend, typically in a list
     or some other collection or object.
     '''
-    global oneVariable = False
 
     def __init__(self):
         '''
         Constructor for the DataSource class
         '''
         self.connection = self.connect()
+        self.oneVariable = False
 
     def connect(self):
         '''
@@ -45,10 +45,10 @@ class DataSource:
         if x == "None" and y == "None":
             return "Error: Please select at least one variable"
         elif y == "None" or y == x:
-            oneVariable = True
+            self.oneVariable = True
             return self.queryOneVariable(x)
         elif x == "None":
-            oneVariable = True
+            self.oneVariable = True
             return self.queryOneVariable(y)
         return self.queryTwoVariables(x,y)
 
@@ -106,7 +106,7 @@ class DataSource:
         yaxis = []
         density = []
         
-        if oneVariable == True:
+        if self.oneVariable == True:
             for row in queryResult:
                 if row[0] not in xaxis:
                     xaxis.append(str(row[0]))
