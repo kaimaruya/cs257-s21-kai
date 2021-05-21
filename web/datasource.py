@@ -147,7 +147,7 @@ class DataSource:
                     density.append(1)
             plt.rc('xtick', labelsize=5)
             plt.clf()
-            plt.bar(xaxis, yaxis, s=density)
+            plt.scatter(xaxis, yaxis, s=density)
         
         plt.savefig("static/graph.png")
         
