@@ -134,9 +134,9 @@ class DataSource:
                     match = False
                     while i < len(xaxis):
                         if row[0] == xaxis[i] and row[1] == yaxis[i]:
-                        density[i] = density[i] + 1
-                        match = True
-                    i = i + 1
+                            density[i] = density[i] + 1
+                            match = True
+                        i = i + 1
                     if match == False:
                         xaxis.append(row[0])
                         yaxis.append(row[1])
