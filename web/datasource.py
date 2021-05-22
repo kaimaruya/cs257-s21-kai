@@ -145,10 +145,13 @@ class DataSource:
                     xaxis.append(row[0])
                     yaxis.append(row[1])
                     density.append(1)
+            density = density * 2
             plt.rc('xtick', labelsize=5)
             plt.rc('ytick', labelsize=5)
             plt.clf()
             plt.scatter(xaxis, yaxis, s=density)
+            plt.xlabel(x)
+            plt.ylabel(y)
         
         plt.savefig("static/graph.png")
         
