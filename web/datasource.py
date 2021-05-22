@@ -143,7 +143,7 @@ class DataSource:
                     yaxis.append(row[1])
                     density.append(1)
             for i in range(len(density)):
-                density[i] = density[i] * 5
+                density[i] = density[i] * 3
             plt.rc('xtick', labelsize=5)
             plt.rc('ytick', labelsize=5)
             plt.clf()
