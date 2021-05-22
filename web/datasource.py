@@ -145,7 +145,7 @@ class DataSource:
                     xaxis.append(row[0])
                     yaxis.append(row[1])
                     density.append(1)
-            density = density * 2
+            density = density * 20
             plt.rc('xtick', labelsize=5)
             plt.rc('ytick', labelsize=5)
             plt.clf()
