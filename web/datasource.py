@@ -124,9 +124,6 @@ class DataSource:
                 plt.title(x)
             elif y != "None":
                 plt.title(y)
-            plt.xlabel("Possible Responses")
-            plt.ylabel("People")
-        
         else:
             for row in queryResult:
                 if row[0] in xaxis:
@@ -145,7 +142,8 @@ class DataSource:
                     xaxis.append(row[0])
                     yaxis.append(row[1])
                     density.append(1)
-            density = density * 20
+            for i in density:
+                i = i * 10
             plt.rc('xtick', labelsize=5)
             plt.rc('ytick', labelsize=5)
             plt.clf()
