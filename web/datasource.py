@@ -149,7 +149,7 @@ class DataSource:
             plt.clf()
             plt.scatter(xaxis, yaxis, s=density)
             plt.yticks(rotation=45)
-            plt.xticks(rotation=135)
+            plt.xticks(rotation=-45)
             plt.xlabel(x)
             plt.ylabel(y)
         
