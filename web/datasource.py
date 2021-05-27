@@ -153,7 +153,7 @@ class DataSource:
             plt.xlabel(x)
             plt.ylabel(y)
         
-        plt.savefig("static/graph.png")
+        plt.savefig("static/graph.png", bbox_inches="tight")
         
         pass
 
