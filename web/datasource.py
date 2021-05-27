@@ -144,11 +144,11 @@ class DataSource:
                     density.append(1)
             '''for i in range(len(density)):
                 density[i] = density[i] * 3'''
-            plt.rc('xtick', labelsize=5)
-            plt.rc('ytick', labelsize=10)
+            plt.rc('xtick', labelsize=7)
+            plt.rc('ytick', labelsize=7)
             plt.clf()
             plt.scatter(xaxis, yaxis, s=density)
-            plt.xticks(rotation=90)
+            plt.xticks(rotation=-90)
             plt.xlabel(x)
             plt.ylabel(y)
         
