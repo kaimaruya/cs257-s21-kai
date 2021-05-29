@@ -198,6 +198,7 @@ button.submit{
     margin: 33px;
     font-size: 20px;
     background-color: rgb(192, 255, 0);
+    float: center;
 }
 
 .dropdown-content {
