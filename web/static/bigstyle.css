@@ -114,6 +114,7 @@ nav li a:hover {
     border-radius: 5px;
     float: right;
     padding: 10px;
+    margin: 10px;
     width: 28%;
 	clear: left;
 	width: 600px;
@@ -194,7 +195,7 @@ figcaption {
 }
 
 button.submit{
-    margin: 285px;
+    margin: 33px;
     font-size: 20px;
     background-color: rgb(192, 255, 0);
 }
