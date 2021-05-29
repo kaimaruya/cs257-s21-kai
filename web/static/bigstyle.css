@@ -116,7 +116,7 @@ nav li a:hover {
     padding: 5px;
     width: 28%;
 	clear: left;
-	width: 450px;
+	width: 600px;
 }
 div.homebase {
     clear: left;   
@@ -168,7 +168,7 @@ div.cite {
 
 div.selectorBox{
     background-color: rgb(140, 187, 221);
-    width: 500px;
+    width: 600px;
     float: right;
     padding: 10px;
 }
