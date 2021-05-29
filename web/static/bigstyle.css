@@ -195,10 +195,9 @@ figcaption {
 }
 
 button.submit{
-    margin: 33px;
-    font-size: 20px;
+    margin: 20px;
+    font-size: 40px;
     background-color: rgb(192, 255, 0);
-    float: center;
 }
 
 .dropdown-content {
