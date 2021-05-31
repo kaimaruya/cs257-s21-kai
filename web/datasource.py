@@ -125,6 +125,7 @@ class DataSource:
             elif y != "None":
                 plt.title(y)
         else:
+            plt.clf()
             for row in queryResult:
                 if row[0] not in xaxis:
                     xaxis.append(str(row[0]))
