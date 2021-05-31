@@ -126,31 +126,28 @@ class DataSource:
                 plt.title(y)
         else:
             for row in queryResult:
-                if row[0] in xaxis:
-                    i = 0
-                    match = False
-                    while i < len(xaxis):
-                        if row[0] == xaxis[i] and row[1] == yaxis[i]:
-                            density[i] = density[i] + 1
-                            match = True
-                        i = i + 1
-                    if match == False:
-                        xaxis.append(row[0])
-                        yaxis.append(row[1])
-                        density.append(1)
-                else:
-                    xaxis.append(row[0])
-                    yaxis.append(row[1])
-                    density.append(1)
-            '''for i in range(len(density)):
-                density[i] = density[i] * 3'''
-            plt.rc('xtick', labelsize=7)
-            plt.rc('ytick', labelsize=7)
-            plt.clf()
-            plt.scatter(xaxis, yaxis, s=density)
-            plt.xticks(rotation=-90)
-            plt.xlabel(x)
-            plt.ylabel(y)
+                if row[0] not in xaxis:
+                    xaxis.append(str(row[0]))
+                    yaxis.append(1)
+                if row[1] not in ylist:
+                    ylist.append(str(row[1]))
+                i = 0
+                while row[0] != xaxis[i]:
+                    i = i + 1
+                yaxis[i] = yaxis[i] + 1
+            plt.bar(xaxis,yaxis)
+            
+            j = 0
+            while j < len(ylist):
+                for row in queryResult:
+                    if row[1] == ylist[j]:
+                        i = 0
+                        while row[0] != xaxis[i]:
+                            i = i + 1
+                        yaxis[i] = yaxis[i] - 1
+                plt.bar(xaxis,yaxis)
+                j = j + 1
+            plt.legend(ylist)
         
         plt.savefig("static/graph.png", bbox_inches="tight")
         
