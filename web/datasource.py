@@ -104,7 +104,7 @@ class DataSource:
         
         xaxis = []
         yaxis = []
-        density = []
+        ylist = []
         
         if self.oneVariable == True:
             for row in queryResult:
