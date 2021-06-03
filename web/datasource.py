@@ -148,7 +148,11 @@ class DataSource:
                         yaxis[i] = yaxis[i] - 1
                 plt.bar(xaxis,yaxis)
                 j = j + 1
+
             plt.legend(ylist)
+            plt.title(x + " vs " + y)
+            plt.xlabel(x)
+            plt.ylabel(y)
         
         plt.savefig("static/graph.png", bbox_inches="tight")
         
