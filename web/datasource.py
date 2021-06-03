@@ -152,7 +152,7 @@ class DataSource:
             plt.legend(ylist, title = y)
             plt.title(x + " vs " + y)
             plt.xlabel(x)
-            plt.xticks(rotation=90)
+            plt.xticks(rotation=-90)
 
             plt.ylabel("Number of Responses")
         
