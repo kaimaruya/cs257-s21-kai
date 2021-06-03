@@ -149,10 +149,10 @@ class DataSource:
                 plt.bar(xaxis,yaxis)
                 j = j + 1
 
-            plt.legend(ylist)
+            plt.legend(ylist, title = y)
             plt.title(x + " vs " + y)
             plt.xlabel(x)
-            plt.ylabel(y)
+            plt.ylabel("Number of Responses")
         
         plt.savefig("static/graph.png", bbox_inches="tight")
         
