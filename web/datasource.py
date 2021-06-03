@@ -116,7 +116,10 @@ class DataSource:
                     i = i + 1
                 yaxis[i] = yaxis[i] + 1
 
-           
+            for i in xaxis:
+                if i == "":
+                    i = "Not lonely"
+
             plt.clf()
             plt.bar(xaxis, yaxis)
             plt.xticks(rotation=90)
