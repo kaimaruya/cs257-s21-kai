@@ -153,6 +153,7 @@ class DataSource:
             plt.title(x + " vs " + y)
             plt.xlabel(x)
             plt.xticks(rotation=90)
+
             plt.ylabel("Number of Responses")
         
         plt.savefig("static/graph.png", bbox_inches="tight")
