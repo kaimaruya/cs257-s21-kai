@@ -120,6 +120,7 @@ class DataSource:
             plt.clf()
             plt.bar(xaxis, yaxis)
             plt.xticks(rotation=-90)
+            plt.ylabel("Number of Responses")
 
             if x != "None":
                 plt.title(x)
