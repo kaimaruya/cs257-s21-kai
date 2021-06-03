@@ -117,7 +117,7 @@ class DataSource:
                 yaxis[i] = yaxis[i] + 1
 
             for i in range(len(xaxis)):
-                if not xaxis[i]:
+                if  xaxis[i] == " ":
                     xaxis[i] = "Not lonely"
                 
 
