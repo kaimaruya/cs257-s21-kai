@@ -116,9 +116,10 @@ class DataSource:
                     i = i + 1
                 yaxis[i] = yaxis[i] + 1
 
-            for i in xaxis:
-                if i == "":
-                    i = "Not lonely"
+            for i in range(len(xaxis)):
+                if not xaxis[i]:
+                    xaxis[i] = "Not lonely"
+                
 
             plt.clf()
             plt.bar(xaxis, yaxis)
