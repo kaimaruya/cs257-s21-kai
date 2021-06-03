@@ -116,9 +116,10 @@ class DataSource:
                     i = i + 1
                 yaxis[i] = yaxis[i] + 1
 
-            plt.rc('xtick', labelsize=5)
+           
             plt.clf()
             plt.bar(xaxis, yaxis)
+            plt.xticks(rotation=-90)
 
             if x != "None":
                 plt.title(x)
