@@ -119,7 +119,7 @@ class DataSource:
            
             plt.clf()
             plt.bar(xaxis, yaxis)
-            plt.xticks(rotation=-90)
+            plt.xticks(rotation=90)
             plt.ylabel("Number of Responses")
 
             if x != "None":
@@ -154,7 +154,7 @@ class DataSource:
             plt.legend(ylist, title = y)
             plt.title(x + " vs " + y)
             plt.xlabel(x)
-            plt.xticks(rotation=-90)
+            plt.xticks(rotation=90)
 
             plt.ylabel("Number of Responses")
         
