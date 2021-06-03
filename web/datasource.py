@@ -143,9 +143,7 @@ class DataSource:
                     i = i + 1
                 yaxis[i] = yaxis[i] + 1
 
-            for i in range(len(xaxis)):
-                if  xaxis[i] == " ":
-                    xaxis[i] = "Not lonely"    
+               
             plt.bar(xaxis,yaxis)
             
             j = 0
@@ -158,10 +156,13 @@ class DataSource:
                         yaxis[i] = yaxis[i] - 1
                 plt.bar(xaxis,yaxis)
                 j = j + 1
+            for i in range(len(xaxis)):
+                if  xaxis[i] == " ":
+                    xaxis[i] = "Not lonely" 
             for i in range(len(ylist)):
                 if  ylist[i] == " ":
                     ylist[i] = "Not lonely"
-                    
+
             plt.legend(ylist, title = y)
             plt.title(x + " vs " + y)
             plt.xlabel(x)
