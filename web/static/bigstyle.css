@@ -49,6 +49,12 @@ p {
     margin-left: 10px;
 }
 
+.note {
+    font-size: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
 nav {
 	background-color: rgb(75, 105, 127);
 	position: sticky;

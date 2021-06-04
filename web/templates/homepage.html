@@ -28,11 +28,11 @@
 	<!-- This highlight part is for the query. We want to have a scroll bar so people can select questions(x, y variables) -->
 	<div  class="selectorBox">
 		<h2 id="data">Select Questions and Make a Graph</h2>
-        <p> To make a graph based one variable, please select a question from one of the drop down menus below, and leave the other one as "None". </p>
-        <p> To make a graph based two variables, please select a question from each of the drop down menu.</p>
+        <p class="note"> To make a graph based one variable, please select a question from one of the drop down menus below, and leave the other one as "None". </p>
+        <p class="note"> To make a graph based two variables, please select a question from each of the drop down menu.</p>
 
 <form action="/sampleresults" method="post">
-<h2><label for="xvar">Select Variable X</label></h2>
+<h3><label for="xvar">Select Variable X</label></h3>
         <select id="xvar" name="xvar" size="1">
         <option value="None">None</option>
         <option value="Happiness">Taken all together, how would you say things are in your life these days? </option>
@@ -123,7 +123,7 @@
         
 </select><br><br>
 
-<h2><label for="yvar">Select Variable Y</label></h2>
+<h3><label for="yvar">Select Variable Y</label></h3>
         <select id="yvar" name="yvar" size="1">
         <option value="None">None</option>
         <option value="Happiness">Taken all together, how would you say things are in your life these days? </option>
