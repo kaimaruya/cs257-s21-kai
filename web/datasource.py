@@ -132,7 +132,7 @@ class DataSource:
                 if row[0] != " ":
                     if row[0] not in xaxis:
                         xaxis.append(str(row[0]))
-                        yaxis.append(1)
+                        yaxis.append(0)
                     if row[1] not in ylist and row[1] != " ":
                         ylist.append(str(row[1]))
                     i = 0
