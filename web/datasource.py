@@ -108,18 +108,14 @@ class DataSource:
         
         if self.oneVariable == True:
             for row in queryResult:
-                if row[0] not in xaxis:
-                    xaxis.append(str(row[0]))
-                    yaxis.append(1)
-                i = 0
-                while row[0] != xaxis[i]:
-                    i = i + 1
-                yaxis[i] = yaxis[i] + 1
-
-            for i in range(len(xaxis)):
-                if  xaxis[i] == " ":
-                    xaxis[i] = "Not lonely"
-                
+                if row[0] != " ":
+                    if row[0] not in xaxis:
+                        xaxis.append(str(row[0]))
+                        yaxis.append(1)
+                    i = 0
+                    while row[0] != xaxis[i]:
+                        i = i + 1
+                    yaxis[i] = yaxis[i] + 1                
 
             plt.clf()
             plt.bar(xaxis, yaxis)
@@ -133,35 +129,31 @@ class DataSource:
         else:
             plt.clf()
             for row in queryResult:
-                if row[0] not in xaxis:
-                    xaxis.append(str(row[0]))
-                    yaxis.append(1)
-                if row[1] not in ylist:
-                    ylist.append(str(row[1]))
-                i = 0
-                while row[0] != xaxis[i]:
-                    i = i + 1
-                yaxis[i] = yaxis[i] + 1
-
-               
+                if row[0] != " ":
+                    if row[0] not in xaxis:
+                        xaxis.append(str(row[0]))
+                        yaxis.append(1)
+                    if row[1] not in ylist and row[1] != " ":
+                        ylist.append(str(row[1]))
+                    i = 0
+                    while row[0] != xaxis[i]:
+                        i = i + 1
+                    yaxis[i] = yaxis[i] + 1
+    
             plt.bar(xaxis,yaxis)
             
             j = 0
             while j < len(ylist):
                 for row in queryResult:
-                    if row[1] == ylist[j]:
-                        i = 0
-                        while row[0] != xaxis[i]:
-                            i = i + 1
-                        yaxis[i] = yaxis[i] - 1
+                    if row[1] != " ":
+                        if row[1] == ylist[j]:
+                            i = 0
+                            if row[0] != " ":
+                                while row[0] != xaxis[i]:
+                                    i = i + 1
+                                yaxis[i] = yaxis[i] - 1
                 plt.bar(xaxis,yaxis)
                 j = j + 1
-            for i in range(len(xaxis)):
-                if  xaxis[i] == " ":
-                    xaxis[i] = "Not lonely" 
-            for i in range(len(ylist)):
-                if  ylist[i] == " ":
-                    ylist[i] = "Not lonely"
 
             plt.legend(ylist, title = y)
             plt.title(x + " vs " + y)
