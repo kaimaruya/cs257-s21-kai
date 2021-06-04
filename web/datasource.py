@@ -154,6 +154,7 @@ class DataSource:
                         while row[0] != xaxis[i]:
                             i = i + 1
                         yaxis[i] = yaxis[i] - 1
+                        
                 plt.bar(xaxis,yaxis)
                 j = j + 1
             for i in range(len(xaxis)):

@@ -4,7 +4,7 @@
 	<title>Social Isolation and Loneliness in the U.S. </title>
 	    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bigstyle.css') }}" />
 </head>
-<body>
+<body onload="flashMessage()">
 	<h1>Social Isolation and Loneliness in the U.S. </h1>
 
 	<nav>
@@ -13,6 +13,17 @@
 			<li><a href="aboutdata">About the Data</a></li>
 		</ul>
 	</nav>
+
+
+  <script>
+    function flashMessage() {
+      if ("{{ flash_message }}" == "True") {
+        alert("[Please select at least one variable!]");
+      }
+    }
+  </script>
+
+  
 
 	<!-- This highlight part is for the query. We want to have a scroll bar so people can select questions(x, y variables) -->
 	<div  class="selectorBox">
