@@ -138,7 +138,8 @@ class DataSource:
                     i = 0
                     while row[0] != xaxis[i]:
                         i = i + 1
-                    yaxis[i] = yaxis[i] + 1
+                    if row[1] != " ":
+                        yaxis[i] = yaxis[i] + 1
     
             plt.bar(xaxis,yaxis)
             
