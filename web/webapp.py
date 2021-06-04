@@ -34,7 +34,7 @@ def searchResult():
     if request.method == 'POST':
         result = request.form
         if result["xvar"] == "None" and result["yvar"] == "None":
-            return render_template('homepage.html', flash_message = "True")
+            return render_template('homepage.html', error_message = "True")
         data = DataSource()
         data.createGraph(result["xvar"], result["yvar"])
     return render_template('sampleresults.html')

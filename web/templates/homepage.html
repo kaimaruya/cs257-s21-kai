@@ -4,7 +4,7 @@
 	<title>Social Isolation and Loneliness in the U.S. </title>
 	    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bigstyle.css') }}" />
 </head>
-<body onload="flashMessage()">
+<body onload="errorMessage()">
 	<h1>Social Isolation and Loneliness in the U.S. </h1>
 
 	<nav>
@@ -16,9 +16,9 @@
 
 
   <script>
-    function flashMessage() {
-      if ("{{ flash_message }}" == "True") {
-        alert("[Please select at least one variable!]");
+    function errorMessage() {
+      if ("{{ error_message }}" == "True") {
+        alert("Please select at least one variable!");
       }
     }
   </script>
@@ -28,6 +28,8 @@
 	<!-- This highlight part is for the query. We want to have a scroll bar so people can select questions(x, y variables) -->
 	<div  class="selectorBox">
 		<h2 id="data">Select Questions and Make a Graph</h2>
+        <h4> To make a graph based one variable, please select a question from one of the drop down menus below, and leave the other one as "None". </h4>
+        <h4> To make a graph based two variables, please select a question from each of the drop down menu.</h4>
 
 <form action="/sampleresults" method="post">
 <p><label for="xvar">Select Variable X</label></p>
@@ -215,8 +217,8 @@
 	<div class="content" class = "homebase">
 		<h2 id="why">Why Loneliness?</h2>
 
-		<p>After the strike of the Covid-19 pendamic, people are forced to quarantine and work from home for months. 
-			Some studys <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7306546/">(e.g.)</a> found that social distancing at home had some impact on people's loneliness, 
+		<p>After the strike of the Covid-19 pandemic, people are forced to quarantine and work from home for months. 
+			Some studies <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7306546/">(e.g.)</a> found that social distancing at home had some impact on people's loneliness, 
 			and this raised our interest in finding the possible relation between loneliness and other factors.
 		</p>
 
