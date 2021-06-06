@@ -28,8 +28,7 @@ def aboutData():
 @app.route('/sampleresults', methods=['POST', 'GET'])
 def searchResult():
     '''
-    This method is executed once you submit the simple form. It embeds the form responses
-    into a web page.
+    This method is executed when the form on the main page is submitted. It will either call the createGraph method in datasource.py and return a graph, or provide a warning message.
     '''
     if request.method == 'POST':
         result = request.form
