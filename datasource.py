@@ -69,7 +69,7 @@ class DataSource:
 
     def __plot_bar(self, data, name):
         answer_frequencies = self.get_answer_frequencies(data)
-        plt.bar(answer_frequencies.keys(), answer_frequencies.values())
+        plt.bar(answer_frequencies[0].keys(), answer_frequencies.values())
         plt.suptitle(name)
 
     def get_answer_frequencies(self, data):
