@@ -1,5 +1,4 @@
-# cs257-s21-team-f
+# cs257-s21-kai
 Members: Kiefer Lord, Emmy Belloni, Kai Maruyama, Nina Sun
 
-Contains text files with our favorite and least favorite books, cold beverages, foods and animals, and NO MORE MERGE CONFLICTS.
-
+After dropping out of team f, kai is using the last version of the project that she contributed to as a starting point for her own project.
