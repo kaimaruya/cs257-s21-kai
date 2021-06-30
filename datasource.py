@@ -1,6 +1,7 @@
 import psycopg2
 import psqlConfig as config
 import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 
