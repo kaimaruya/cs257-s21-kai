@@ -30,7 +30,7 @@ class DataSource:
         try:
             print("database = " + config.database + " user = " + config.user + " password = " +config.password)
             connection = psycopg2.connect(database=config.database, user=config.user,
-                                          password=config.password, host='localhost')
+                                          password=config.password, host=config.host)
         except Exception as e:
             print("Connection error: ", e)
             exit()
