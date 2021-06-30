@@ -60,21 +60,19 @@ class DataSource:
             print("Something went wrong when executing the query: ", e)
             return None
 
-    @staticmethod
-    def plot_data(first_column, second_column="NONE"):
-        data = get_data(first_column, second_column)
+
+    def plot_data(self, first_column, second_column="NONE"):
+        data = self.get_data(first_column, second_column)
         if second_column == "NONE":
-            plot_bar(data, first368_column)
+            self.__plot_bar(data, first_column)
             plt.savefig("static/plot.png", bbox_inches="tight")
 
-    @staticmethod
-    def __plot_bar(data, name):
-        answer_frequencies = get_answer_frequencies(data)
+    def __plot_bar(self, data, name):
+        answer_frequencies = self.get_answer_frequencies(data)
         plt.bar(answer_frequencies.keys(), answer_frequencies.values())
         plt.suptitle(name)
 
-    @staticmethod
-    def get_answer_frequencies(data):
+    def get_answer_frequencies(self, data):
         answer_frequencies = []
         for column in data:
             column_answer_frequencies = {}
