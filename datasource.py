@@ -64,16 +64,16 @@ class DataSource:
 
     def plot_data(self, first_column, second_column="NONE"):
         data = self.get_data(first_column, second_column)
+        self.fig = plt.figure()
         if second_column == "NONE":
             self.__plot_bar(data, first_column)
-            plt.savefig("static/plot.png", bbox_inches="tight")
+            self.fig.savefig("plot.png", bbox_inches="tight")
 
     def __plot_bar(self, data, name):
         answer_frequencies = self.get_answer_frequencies(data)
-        fig = plt.figure()
-        ax = fig.add_axes([0,0,1,1])
+        ax = self.fig.add_axes([0,0,1,1])
         ax.bar(answer_frequencies[0].keys(), answer_frequencies[0].values())
-        plt.suptitle(name)
+        self.fig.suptitle(name)
 
     def get_answer_frequencies(self, data):
         answer_frequencies = []
