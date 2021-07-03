@@ -70,8 +70,8 @@ class DataSource:
             return None
     
     def get_comparative_data(self, first_column, second_column):
-        first_answers = get_answers(first_column)
-        second_answers = get_answers(seond_column)
+        first_answers = self.get_answers(first_column)
+        second_answers = self.get_answers(second_column)
         try:
             cursor = self.connection.cursor()
             query = ""
@@ -86,7 +86,7 @@ class DataSource:
                     query += "SELECT COUNT(" + first_column + ", " + second_column + ") FROM lonelinesssurveyshort WHERE " 
                     query += first_column + "='" + first_answer[0] + " AND(" + second_column + "='" + second_answer[0] + "')"
             query += ";"
-            cursor.execute(query, (column,))
+            cursor.execute(query, (first_column,second_column))
             return cursor.fetchall()
         except Exception as e:
             print("Something went wrong when executing the query: ", e)
@@ -126,16 +126,16 @@ class DataSource:
         
 
     def __plot_one_variable(self, column):
-        answers = get_answers(column)
-        ax.bar(get_answers(column), get_data(column))
-        self.fig.suptitle(get_name(first_column))
+        answers = self.get_answers(column)
+        self.ax.bar(self.get_answers(column), self.get_data(column))
+        self.fig.suptitle(self.get_name(column))
     
     def __plot_two_variables(self, first_column, second_column):
-        first_answers = get_answers(first_column)
-        second_answers = get_answers(seond_column)
+        first_answers = self.get_answers(first_column)
+        second_answers = self.get_answers(second_column)
         num_bars = len(first_answers) * len(second_answers)
         bar_x_positions = np.arrange(num_bars)
-        ax.bar(bar_x_positions, 
+        # self.ax.bar(bar_x_positions,
         
 if __name__ == '__main__':
     data_source = DataSource()
