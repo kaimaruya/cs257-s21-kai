@@ -1,0 +1,84 @@
+happiness,"Taken all together, how would you say things are in your life these days--would you say that you are (very happy), somewhat happy, or (not too happy)? "
+familylife,Please tell us whether you are satisfied or dissatisfied with your family life
+finances,Please tell us whether you are satisfied or dissatisfied with your personal financial situation
+employment,Please tell us whether you are satisfied or dissatisfied with your current employment situation
+housing,Please tell us whether you are satisfied or dissatisfied with your current housing situation
+support,"Thinking about your personal support network (that is, relatives and friends living nearby who
+you can rely on for help or support)  do you have a lot of people you can rely on, a fair amount, just a few, or no people living nearby who you can rely on?"
+healthwellness,Are you a member of a health or wellness group
+hwfrequency,How often do you participate in meetings with this group?
+socialgroup,Are you a member of a social group
+socialgroupfrequency,How often do you participate in meetings with this group?
+serviceorganization,"Sometimes loneliness is caused by a specific event or condition such as the loss of a spouse or an unexpected illness, and sometimes there doesnt seem to be a specific reason why people feel lonely. Would you say there is a specific cause for your feelin"
+sorganizationfrequency,How often do you participate in meetings with this group?
+lonelinessfrequency,How often do you feel lonely?
+companionship,How often do you feel that you lack companionship?
+leftout,How often do you feel left out?
+isolated,How often do you feel isolated from others?
+lonely,Are you lonely?
+discuss,How many people do you have in your life with whom you can discuss things that are important to you?
+neighbors,How satisfied or dissatisfied are you with the number of meaningful connections you have with your neighbors
+family,How satisfied or dissatisfied are you with the number of meaningful connections you have with family
+friends,How satisfied or dissatisfied are you with the number of meaningful connections you have with friends
+familyinperson,"Other than family members you live with, how often, if ever, do you talk with family members in person"
+familyoverphone,"Other than family members you live with, how often, if ever, do you talk with family members over the phone"
+familyoversocialmedia,"Other than family members you live with, how often, if ever, do you talk with family members through email, text or social media"
+friendsinperson,"Other than friends you live with, how often, if ever, do you talk with friends in person"
+friendsoverphone,"Other than friends you live with, how often, if ever, do you talk with friends over the phone"
+friendsoversocialmedia,"Other than friends you live with, how often, if ever, do you talk with friends through email, text or social media"
+problem,How much have you heard or read about the problems of loneliness and social isolation in the US
+publicorindividual,Do you think that loneliness and social isolation is more of a public health problem or an individual one?
+government,How much of a role should the government play in helping reduce loneliness and social isolation?
+individuals,How much of a role should individuals and families play in helping reduce loneliness and social isolation?
+nonprofits,How much of a role should nonprofits and charities play in helping reduce loneliness and social isolation?
+churches,How much of a role should churches play in helping reduce loneliness and social isolation?
+factors,"In general, (do you think people who are lonely mostly have themselves to blame for their own loneliness), or (do you think loneliness is usually due to factors and circumstances beyond a persons control)? "
+movingaway,Is more people moving away from where they grew up a major/minor reson that people are socially isolated?
+governmentcuts,Is cuts in government programs a major/minor reson that people are socially isolated?
+technology,Is increased use of technology a major/minor reson that people are socially isolated?
+agingparents,Is adult children playing less a role in helping aging parents a major/minor reson that people are socially isolated?
+unemployment,Is long term unemployment a major/minor reson that people are socially isolated?
+internet,Do you use the internet?
+socialmedia,Do you use social media?
+socialmediafrequency,How often do you use social media?
+socialmediahours,How much time do you spend using social media?
+lookingorengaging,Is the time you spend on social media spent looking at what others are doing or engaging in conversations with other people?
+connections,Do you feel like your ability to connect with people is weakened or strengthened by social media?
+lonelinessandsocialmedia,Do you feel like your own feelings of loneliness are made better or worse by social media?
+onlinevsphone,After interacting with a friend online are you more or less satisfied than interacting with them on the phone?
+onlinevsinperson,After interacting with a friend online are you more or less satisfied than interacting with them in person?
+recommendinternet,"In general, if a friend were experiencing loneliness, would you recommend they use the internet as a way to help with their loneliness or not?"
+spendtime,Do you think that technology in general has made it easier or harder to spend time with your friends and family in person?
+bigproblem,How big a problem would you say being lonely is for you?
+cause,"Sometimes loneliness is caused by a specific event or condition such as the loss of a spouse or an unexpected illness, and sometimes there doesnt seem to be a specific reason why people feel lonely. Would you say there is a specific cause for your feelings of loneliness, or not? "
+continuous,Is loneliness a feeling that comes and goes or is it continuous?
+lengthlonely,How long have you felt lonely or isolated?
+impactpersonalrelationships,Do you think feeling lonely has had a postive/negative/no impact on your personal relationships?
+impactjob,Do you think feeling lonely has had a postive/negative/no impact on your ability to do your job?
+impactphysicalhealth,Do you think feeling lonely has had a postive/negative/no impact on your physical health?
+impactmentalhealth,Do you think feeling lonely has had a postive/negative/no impact on your mental health?
+talkfriend,"When you are feeling lonely, how often do you talk to a friend or relative?"
+visitpublic,"When you are feeling lonely, how often do you visit a community center or other public place?"
+counselor,"When you are feeling lonely, how often do you call a support line or counselor"
+exercise,"When you are feeling lonely, how often do you exercise?"
+drugs,"When you are feeling lonely, how often do you abuse alcohol or drugs?"
+cigarettes,"When you are feeling lonely, how often do you smoke cigarettes or use other tobacco products?"
+overeat,"When you are feeling lonely, how often do you overeat?"
+past,"When you are feeling lonely, how often do you relive memories from the past?"
+browse,"When you are feeling lonely, how often do you browse the internet or social media sites?"
+distract,"When you are feeling lonely, how often do you distract yourself with television, computer or video games?"
+talk,Have you ever talked with someone about your feelings of loneliness?
+doctor,Did you talk to a doctor or other health professional?
+closefriend,Did you talk to a close friend?
+familymember,Did you talk to a family member?
+mentalhealthprofessional,Did you talk to a mental health professional?
+advisor,Did you talk to a religious or spiritual advisor?
+helpful,How helpful was it to talk with someone about your feelings of loneliness?
+whototalkto,Have you not talked to anyone about your feelings of loneliness because you don't know who to talk to?
+problemnotbad,Have you not talked to anyone about your feelings of loneliness because you don't think the problem is that bad?
+havetime,Have you not talked to anyone about your feelings of loneliness because you don't have the time?
+energy,Have you not talked to anyone about your feelings of loneliness because you don't have the energy?
+handleonyourown,Have you not talked to anyone about your feelings of loneliness because you think you should be able to handle it on your own?
+afford,Have you not talked to anyone about your feelings of loneliness because you don't think you can afford to talk to a professional?
+violentact,Have feelings of loneliness or isolation ever led you to think about committing a violent act?
+harmingyourself,Have feelings of loneliness or isolation ever led you to think about harming yourself?
