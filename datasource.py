@@ -37,68 +37,71 @@ class DataSource:
             exit()
         return connection
         
-    def get_data(self, column):
+    def get_data(self, question):
         '''
         Retrieves the number of times each response to a certain survey question is given.
         
         Parameters:
-            column - the column name from which these data are to be retrieved.
+            question - the question name from which these data are to be retrieved.
             
         Returns:
             A list of single-element tuples each containing the count for one answer.
         '''
-        answers = self.get_answers(column)
+        answers = self.get_answers(question)
         try:
             cursor = self.connection.cursor()
             query = ""
             for answer in answers:
                 if not len(query) == 0:
                     query += "\nUNION ALL\n"
-                query += "SELECT COUNT(" + column + ") FROM lonelinesssurveyshort WHERE " + column + "='" + answer[0] + "'"
+                query += "SELECT COUNT(" + question + ") FROM lonelinesssurveyshort WHERE " + question + "='" + answer + "'"
             query += ";"
-            cursor.execute(query, (column,))
+            cursor.execute(query, (question,))
             return cursor.fetchall()
         except Exception as e:
             print("Something went wrong when executing the data query: ", e)
             return None
     
-    def get_answers(self, column):
+    def get_answers(self, question):
         '''
         Retrieves every answer given to a question without duplicates. Does not include blank responses where the question was not asked.
         
         Parameters:
-            column - the column name from which the answers are to be retrieved
+            question - the question name from which the answers are to be retrieved
             
         Returns:
-            A list of single-element tuples each containing one of the answers given.
+            A list of the answers given
         '''
         try:
             cursor = self.connection.cursor()
-            query = "SELECT DISTINCT " + column + " FROM lonelinesssurveyshort WHERE NOT(" + column + "=' ') ;"
-            cursor.execute(query, (column,))
+            query = "SELECT DISTINCT " + question + " FROM lonelinesssurveyshort WHERE NOT(" + question + "=' ') ;"
+            cursor.execute(query, (question,))
             answers = cursor.fetchall()
-            return answers
+            new_answers = []
+            for answer in answers:
+                new_answers.append(answer[0])
+            return new_answers
         except Exception as e:
             print("Something went wrong when executing the answers query: ", e)
             return None
     
-    def get_probability_of_two_answers(self, first_column, first_answer, second_column, second_answer):
+    def get_probability_of_two_answers(self, first_question, first_answer, second_question, second_answer):
         '''
         Returns the probability of one answer to one question occuring and a second answer to a second question also occuring. Essentially, the probability of both answers occuring.
         
         Parameters:
-            first_column and second_column - the two columns/questions to be queried. There's no meaningful difference between the two.
-            first_answer and second_answer - the two answers to their respective questions. Again, no meaningful difference except that they are specific to their corresponding column
+            first_question and second_question - the two questions/questions to be queried. There's no meaningful difference between the two.
+            first_answer and second_answer - the two answers to their respective questions. Again, no meaningful difference except that they are specific to their corresponding     question
         
         Returns:
             A float containing the probability of both answers occuring together
         '''
         try:
             cursor = self.connection.cursor()
-            query = "SELECT COUNT(*) FROM lonelinesssurveyshort WHERE " + first_column + "='" + first_answer + "' AND " + second_column + "='" + second_answer + "'"
+            query = "SELECT COUNT(*) FROM lonelinesssurveyshort WHERE " + first_question + "='" + first_answer + "' AND " + second_question + "='" + second_answer + "'"
             query += "\nUNION ALL\n"
-            query += "SELECT COUNT(*) FROM lonelinesssurveyshort WHERE NOT(" + first_column + "=' ') AND NOT(" + second_column + "=' ');"
-            cursor.execute(query, (first_column, second_column))
+            query += "SELECT COUNT(*) FROM lonelinesssurveyshort WHERE NOT(" + first_question + "=' ') AND NOT(" + second_question + "=' ');"
+            cursor.execute(query, (first_question, second_question))
             output = cursor.fetchall()
             # division and breaking the query results out of their list and their single-element tuples
             return (output[0][0]/float(output[1][0]))
@@ -125,49 +128,48 @@ class DataSource:
             return None
     
 
-    def plot_data(self, first_column, second_column="NONE"):
+    def plot_data(self, first_question, second_question="NONE"):
         '''
-        Plots the given column or columns in a bar chart if only one is provided or a heatmap if two columns are provided. Saves the resulting plot as plot.png
+        Plots the given question or questions in a bar chart if only one is provided or a heatmap if two questions are provided. Saves the resulting plot as plot.png
         
         Parameters:
-            first_column: the first column to plot. The only one used if only one argument is given.
-            second_column: the second column, defaults to "NONE" in which case only first_column will be used.
+            first_question: the first question to plot. The only one used if only one argument is given.
+            second_question: the second question, defaults to "NONE" in which case only first_question will be used.
         '''
         self.fig = plt.figure()
         self.fig, self.ax = plt.subplots()
         
-        if second_column == "NONE":
-            self.__plot_bar(first_column)
+        if second_question == "NONE":
+            self.__plot_bar(first_question)
         else:
-            self.__plot_heatmap(first_column, second_column)
+            self.__plot_heatmap(first_question, second_question)
             
         
         self.fig.savefig("plot.png", bbox_inches="tight")
         
 
-    def __plot_bar(self, column):
+    def __plot_bar(self, question):
         '''
         Creates a bar chart of how often each answer to the provided question is given
             
         Parameters:
-            column - The question whose answers are to be graphed.
+            question - The question whose answers are to be graphed.
         '''
-        answers = get_answers(column)
         self.ax = self.fig.add_axes([0,0,1,1])
-        self.ax.bar(get_answers(column), get_data(column))
-        self.fig.suptitle(get_name(first_column))
+        self.ax.bar(get_answers(question), get_data(question))
+        self.fig.suptitle(get_name(first_question))
         
-    def __plot_heatmap(self, first_column, second_column):
+    def __plot_heatmap(self, first_question, second_question):
         '''
         Creates a heatmap indicating the probability of each combination of responses. Does not account for situations where either question was not responded to.
         
         Parameters:
-            first_column - the first question, which serves as the y-axis of the chart
-            second_column - the second question, which serves as the x-axis of the chart
+            first_question - the first question, which serves as the y-axis of the chart
+            second_question - the second question, which serves as the x-axis of the chart
         '''
         
-        first_answers = self.get_answers(first_column)
-        second_answers = self.get_answers(second_column)
+        first_answers = self.get_answers(first_question)
+        second_answers = self.get_answers(second_question)
         
         probabilities = []
         i = -1
@@ -175,20 +177,15 @@ class DataSource:
             i += 1
             probabilities.append([])
             for second_answer in second_answers:
-                probabilities[i].append(
-                                        round(
-                                              self.get_probability_of_two_answers(
-                                                                                  first_column, first_answer[0], second_column, second_answer[0]) * 100
-                                              ,1)
-                                        )
+                probabilities[i].append(round(self.get_probability_of_two_answers(first_question, first_answer, second_question, second_answer) * 100,1))
                 
         # probabilities must be converted to a numpy array to work with the heatmap function borrowed from the matplotlib documentation
         probabilities_array = np.array(probabilities)
         
         im, cbar = heatmap(probabilities_array, first_answers, second_answers, ax = self.ax, cbar_kw=dict(orientation='horizontal', cmap="bwr"), cbarlabel="Probability")
         texts = annotate_heatmap(im, valfmt="{x:.1f}%")
-        self.ax.set_ylabel(first_column)
-        self.ax.set_label(second_column)
+        self.ax.set_ylabel(first_question)
+        self.ax.set_label(second_question)
         self.fig.tight_layout()
         plt.show()
         self.fig.suptitle("Probability of a response to the second question given a response to the first question")
