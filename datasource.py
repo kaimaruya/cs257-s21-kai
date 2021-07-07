@@ -82,43 +82,25 @@ class DataSource:
             print("Something went wrong when executing the answers query: ", e)
             return None
     
-    def get_comparative_data(self, first_column, second_column):
-        '''
-        
-        '''
-        first_answers = get_answers(first_column)
-        second_answers = get_answers(seond_column)
-        try:
-            cursor = self.connection.cursor()
-            query = ""
-            for first_answer in first_answers:
-                if first_answer == ('No Response',):
-                    first_answer = (' ',)
-                for second_answer in second_answers:
-                    if second_answer == ('No Response',):
-                        second_answer = (' ',)
-                    if not len(query) == 0:
-                        query += "\nUNION ALL\n"
-                    query += "SELECT COUNT(" + first_column + ", " + second_column + ") FROM lonelinesssurveyshort WHERE " 
-                    query += first_column + "='" + first_answer[0] + " AND(" + second_column + "='" + second_answer[0] + "')"
-            query += ";"
-            print(query)
-            cursor.execute(query, (column,))
-            return cursor.fetchall()
-        except Exception as e:
-            print("Something went wrong when executing the comparative data query: ", e)
-            return None
-    
     def get_probability_of_two_answers(self, first_column, first_answer, second_column, second_answer):
+        '''
+        Returns the probability of one answer to one question occuring and a second answer to a second question also occuring. Essentially, the probability of both answers occuring.
+        
+        Parameters:
+            first_column and second_column - the two columns/questions to be queried. There's no meaningful difference between the two.
+            first_answer and second_answer - the two answers to their respective questions. Again, no meaningful difference except that they are specific to their corresponding column
+        
+        Returns:
+            A float containing the probability of both answers occuring together
+        '''
         try:
             cursor = self.connection.cursor()
             query = "SELECT COUNT(*) FROM lonelinesssurveyshort WHERE " + first_column + "='" + first_answer + "' AND " + second_column + "='" + second_answer + "'"
             query += "\nUNION ALL\n"
             query += "SELECT COUNT(*) FROM lonelinesssurveyshort WHERE NOT(" + first_column + "=' ') AND NOT(" + second_column + "=' ');"
-            print query
             cursor.execute(query, (first_column, second_column))
             output = cursor.fetchall()
-            print output
+            # division and breaking the query results out of their list and their single-element tuples
             return (output[0][0]/float(output[1][0]))
         except Exception as e:
             print("Something went wrong when executing the probability query: ", e)
@@ -126,7 +108,7 @@ class DataSource:
     
     def get_name(self, alias):
         '''
-        retreives the unshortened version of alias from the database
+        Retreives the unshortened version of alias from the database
         
         Parameters:
             alias - the shortened name
@@ -137,7 +119,6 @@ class DataSource:
         try:
             cursor = self.connection.cursor()
             query = "SELECT fullname FROM aliases WHERE id = '" + alias + "';"
-            print(query)
             return cursor.fetchall()
         except Exception as e:
             print("Something went wrong when executing the name query: '" + alias + "'", e)
@@ -145,6 +126,13 @@ class DataSource:
     
 
     def plot_data(self, first_column, second_column="NONE"):
+        '''
+        Plots the given column or columns in a bar chart if only one is provided or a heatmap if two columns are provided. Saves the resulting plot as plot.png
+        
+        Parameters:
+            first_column: the first column to plot. The only one used if only one argument is given.
+            second_column: the second column, defaults to "NONE" in which case only first_column will be used.
+        '''
         self.fig = plt.figure()
         self.fig, self.ax = plt.subplots()
         
@@ -158,22 +146,45 @@ class DataSource:
         
 
     def __plot_bar(self, column):
+        '''
+        Creates a bar chart of how often each answer to the provided question is given
+            
+        Parameters:
+            column - The question whose answers are to be graphed.
+        '''
         answers = get_answers(column)
         self.ax = self.fig.add_axes([0,0,1,1])
         self.ax.bar(get_answers(column), get_data(column))
         self.fig.suptitle(get_name(first_column))
         
     def __plot_heatmap(self, first_column, second_column):
+        '''
+        Creates a heatmap indicating the probability of each combination of responses. Does not account for situations where either question was not responded to.
+        
+        Parameters:
+            first_column - the first question, which serves as the y-axis of the chart
+            second_column - the second question, which serves as the x-axis of the chart
+        '''
+        
         first_answers = self.get_answers(first_column)
         second_answers = self.get_answers(second_column)
+        
         probabilities = []
         i = -1
         for first_answer in first_answers:
             i += 1
             probabilities.append([])
             for second_answer in second_answers:
-                probabilities[i].append(round(self.get_probability_of_two_answers(first_column, first_answer[0], second_column, second_answer[0]) * 100,1))
+                probabilities[i].append(
+                                        round(
+                                              self.get_probability_of_two_answers(
+                                                                                  first_column, first_answer[0], second_column, second_answer[0]) * 100
+                                              ,1)
+                                        )
+                
+        # probabilities must be converted to a numpy array to work with the heatmap function borrowed from the matplotlib documentation
         probabilities_array = np.array(probabilities)
+        
         im, cbar = heatmap(probabilities_array, first_answers, second_answers, ax = self.ax, cbar_kw=dict(orientation='horizontal', cmap="bwr"), cbarlabel="Probability")
         texts = annotate_heatmap(im, valfmt="{x:.1f}%")
         self.ax.set_ylabel(first_column)
