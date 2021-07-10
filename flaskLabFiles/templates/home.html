@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <script type="text/javascript" href="{{ url_for('static', filename='nickname.js') }}"></script> -->
+</head>
+<body>
+  <h1>A simple form with Javascript</h1>
+  <p>This is a simple example of how to capture data from a form and send it elsewhere for processing. In this case, we'll just display what you selected. Also, this shows how to use Javascript to show additional fields.</p>
+
+	<form action="/results" method="post">
+	  <p>Your name</p>
+	  <input type="text" placeholder="Your first name" name="firstName">
+	  <input type="text" placeholder="Your last name" name="lastName">
+	  
+	  <p><input type="checkbox" name="hasNickname" id="hasNickname" checked=false onclick="displayTextBox()"/> Check here if you had a childhood nickname.</p>
+
+      <script type="text/javascript">
+      function displayTextBox() {
+        var checkbox = document.getElementById('hasNickname');
+        var element = document.getElementById('nicknameInfo');
+        if (checkbox.checked == true) {
+            element.style.display = 'nicknameInfo';
+        } else {
+            element.style.display = 'none';
+        }
+      }
+      </script>
+      <div id="nicknameInfo">
+      <p>What was your nickname? <input type="text" placeholder="nickname" name="nickname" value=""></p>
+     </div>
+
+	  <p><label for="flavor">Select your favorite ice cream flavor</label></p>
+	  <select id="flavor" name="flavor" size="1">
+		  <option value="chocolate">Chocolate</option>
+		  <option value="vanilla">Vanilla</option>
+		  <option value="strawberry">Strawberry</option>
+		  <option value="none">I hate ice cream</option>
+	  </select><br><br>
+
+	  <input type="submit" value="Submit">
+	</form>
+  </div>
+</div>
+<body>
+<html>

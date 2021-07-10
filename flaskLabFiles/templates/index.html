@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <h1>A simple form</h1>
+  <p>This is a simple example of how to capture data from a form and send it elsewhere for processing. In this case, we'll just display what you selected.</p>
+
+	<form action="/results" method="post">
+	  <p>Your name</p>
+	  <input type="text" placeholder="Your first name" name="firstName">
+	  <input type="text" placeholder="Your last name" name="lastName">
+	  
+	  <p>Did you have a childhood nickname?</p>
+	  <input type="radio" id="yes" name="nickname" value="yes">
+	  <label for="yes">Yes</label><br>
+	  <input type="radio" id="no" name="nickname" value="no">
+	  <label for="no">No</label><br>
+	  <input type="radio" id="unknown" name="nickname" value="unknown">
+	  <label for="unknown">I'm not sure</label>
+
+	  <p>If so, what was it?</p>
+	  <input type="text" placeholder="none" name="actualNickname">
+
+	  <p><label for="flavor">Select your favorite ice cream flavor</label></p>
+	  <select id="flavor" name="flavor" size="1">
+		  <option value="chocolate">Chocolate</option>
+		  <option value="vanilla">Vanilla</option>
+		  <option value="strawberry">Strawberry</option>
+          <option value="cookies">Cookies and Cream</option>
+		  <option value="none">I don't eat ice cream</option>
+	  </select><br><br>
+
+	  <input type="submit" value="Submit">
+	</form>
+  </div>
+</div>
+<body>
+<html>
