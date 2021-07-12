@@ -160,7 +160,9 @@ class DataSource:
         '''
         self.ax = self.fig.add_axes([0,0,1,1])
         self.ax.bar(self.get_answers(question), self.get_data(question))
-        self.fig.suptitle(self.get_name(question))
+        self.ax.set_xlabel(question)
+        plt.setp(self.ax.get_xticklabels(), rotation=45, ha="right",
+             rotation_mode="anchor")
         
     def __plot_heatmap(self, first_question, second_question):
         '''
@@ -188,7 +190,7 @@ class DataSource:
         im, cbar = heatmap(probabilities_array, first_answers, second_answers, ax = self.ax, cbar_kw=dict(orientation='horizontal', cmap="bwr"), cbarlabel="Probability")
         texts = annotate_heatmap(im, valfmt="{x:.1f}%")
         self.ax.set_ylabel(first_question)
-        self.ax.set_label(second_question)
+        self.ax.set_xlabel(second_question)
         self.fig.tight_layout()
         plt.show()
         self.fig.suptitle("Probability of a response to the second question given a response to the first question")

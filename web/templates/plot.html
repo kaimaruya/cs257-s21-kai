@@ -14,16 +14,14 @@
     </ul>
 </nav>
 
-<figure class="contentBox">
+<figure class="contentBox" id="figureBox">
     <img src="{{ url_for('static', filename='plot.png') }}"/>
+    <div class= "button">
+        <a href="{{ url_for('static', filename='plot.png') }}" download>SAVE IMAGE</a>
+    </div>
 </figure>
-<div class="back">
-	<p> <a href="/">BACK</a></p>
-</div>
-<div class= "save">
-    <p> <a href="{{ url_for('static', filename='plot.png') }}" download>SAVE IMAGE</a></p>
-</div>
-<div class="cite">
+
+<div class="contentBox">
 	<h2> Cite this Data</h2>
 	<p> The Economist/Henry J. Kaiser Family Foundation. Kaiser Family Foundation/The Economist Poll: Survey on Loneliness and Social Isolation in the United States, the United Kingdom, and Japan (US), 2018 [Dataset]. Roper #31115454, Version 2. Social Science Research Solutions (SSRS) [producer]. Cornell University, Ithaca, NY: Roper Center for Public Opinion Research [distributor]. doi:10.25940/ROPER-31115454</p>
 </div>

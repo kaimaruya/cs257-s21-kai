@@ -96,34 +96,6 @@ div.homebase {
     padding-bottom: 10px;  
 }
 
-
-figure {
-    float: left;
-    margin-right: 30px;
-}
-
-figcaption {
-    text-align: center;
-}
-
-img {
-    border: 20px solid rgb(140,187,221);
-}
-
-div.back {
-    background-color: rgb(140,187,221);
-    font-size: 40px;
-    text-align: center;
-    width: 25%;
-    float: right;
-    margin: 10px;
-}
-
-div.back:hover {
-    color: rgb(56,60,62);
-    background-color: rgb(192, 255, 0);
-}
-
 div.save {
     background-color: rgb(140,187,221);
     font-size: 40px;
@@ -138,28 +110,21 @@ div.save:hover {
     color: rgb(56,60,62);
     background-color: rgb(192, 255, 0);
 }
-
-div.cite {
-    background-color: rgb(140,187,221);
-    font-size: 15px;
-    color:rgb(56,60,62);
-    text-align: center;
-    width: 25%;
-    float: right;
-    margin: 10px;
-}
-
 .contentBox{
     border: 4px solid rgb(140, 187, 221);
     background-color: rgb(75, 105, 127);
     border-radius: 5px;
     float: left;
-    padding: 5px;
+    padding: 0.5em;
     width: 25%;
     margin: 1em;
 }
     .contentBox a{ 
         color: rgb(140, 187, 221);
+    }
+    
+    #figureBox {
+        width: auto;
     }
 
     #boxTitle {
@@ -173,6 +138,21 @@ div.cite {
         margin: 1px;
         width: 95%;
     }
+    
+.button {
+    border-radius:5px;
+    float:center;
+    allign-self: center;
+    padding:0.5em;
+    margin:1em;
+    width: 7em;
+    border-color:rgb(93, 139, 18);
+    background-color:rgb(192, 255, 0);
+    color:rgb(56,60,62);
+}
+    .button a {
+        color:rgb(56,60,62);
+    }
 .goButton {
 }
 
@@ -180,8 +160,4 @@ div.cite {
 div.cite:hover {
     color: rgb(56,60,62);
     background-color: rgb(192, 255, 0);
-}
-
-figcaption {
-    color: rgb(230,229,224);
 }
