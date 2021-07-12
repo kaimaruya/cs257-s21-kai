@@ -57,7 +57,10 @@ class DataSource:
                 query += "SELECT COUNT(" + question + ") FROM lonelinesssurveyshort WHERE " + question + "='" + answer + "'"
             query += ";"
             cursor.execute(query, (question,))
-            return cursor.fetchall()
+            output = cursor.fetchall()
+            for i in range(len(output)):
+                output[i] = output[i][0]
+            return output
         except Exception as e:
             print("Something went wrong when executing the data query: ", e)
             return None
@@ -125,7 +128,7 @@ class DataSource:
             return cursor.fetchall()
         except Exception as e:
             print("Something went wrong when executing the name query: '" + alias + "'", e)
-            return None
+            return alias
     
 
     def plot_data(self, first_question, second_question="NONE"):
@@ -145,7 +148,7 @@ class DataSource:
             self.__plot_heatmap(first_question, second_question)
             
         
-        self.fig.savefig("plot.png", bbox_inches="tight")
+        self.fig.savefig("static/plot.png", bbox_inches="tight")
         
 
     def __plot_bar(self, question):
@@ -156,8 +159,8 @@ class DataSource:
             question - The question whose answers are to be graphed.
         '''
         self.ax = self.fig.add_axes([0,0,1,1])
-        self.ax.bar(get_answers(question), get_data(question))
-        self.fig.suptitle(get_name(first_question))
+        self.ax.bar(self.get_answers(question), self.get_data(question))
+        self.fig.suptitle(self.get_name(question))
         
     def __plot_heatmap(self, first_question, second_question):
         '''
@@ -315,4 +318,4 @@ def annotate_heatmap(im, data=None, valfmt="{x:.2f}",
 if __name__ == '__main__':
     data_source = DataSource()
     data_source.get_name("doctor")
-    data_source.plot_data("doctor", "counselor")
+    data_source.plot_data("doctor",)

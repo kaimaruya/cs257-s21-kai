@@ -22,7 +22,7 @@ def get_graph():
     if request.method == 'POST':
         result = request.form
         datasource = DataSource();
-        print(result)
+        print(result['firstVariable'] + ", " + result['secondVariable'])
         datasource.plot_data(result['firstVariable'], result['secondVariable'])
     return render_template('plot.html')
     
