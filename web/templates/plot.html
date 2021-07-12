@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="bigstyle.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='newStyle.css') }}">
 	<title>Social Isolation and Loneliness in the United States</title>
 </head>
 <body>
@@ -14,7 +14,8 @@
     </ul>
 </nav>
 
-<figure><img src="data.jpg"/><figcaption> NOTE: This figure is a mock up, and does not accurately represent the dataset.</figcaption>
+<figure class="contentBox">
+    <img src="{{ url_for('static', filename='plot.png') }}"/>
 </figure>
 <div class="back">
 	<p> <a href="homepage.html">BACK</a></p>

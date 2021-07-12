@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+	<title>Social Isolation and Loneliness in the U.S. </title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='newStyle.css') }}">
+</head>
+<body>
+	<h1>Social Isolation and Loneliness in the U.S. </h1>
+
+	<nav>
+		<ul>
+			<li id = "current"><a href="homepage">Home</a></li>
+			<li><a href="aboutdata">About the Data</a></li>
+		</ul>
+	</nav>
+
+	<div class="contentBox" id="whyLoneliness">
+		<h3>Why Loneliness?</h3>
+
+		<p>After the strike of the Covid-19 pendamic, people are forced to quarantine and work from home for months. 
+			Some studies <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7306546/">(e.g.)</a> found that social distancing at home had some impact on people's loneliness, 
+			and this raised our interest in finding the possible relation between loneliness and other factors.
+		</p>
+    </div>
+
+    <div class="contentBox" id="whatCanWeDo">
+		<h3> What Can We do?</h3>
+		<p>This site will allow users to investigate the relationships between loneliness and isolation by generating plots for different variables, 
+			other habits and lifestyle choices, and general happiness and contentment, in order to encourage thinking about how these things impact each other and our daily lives.
+		</p>
+	</div>
+
+	<div  class="contentBox" id="selectorBox">
+		<h3 class="contentBox" id="boxTitle">Select Questions and Make a Graph</h2>
+		<form action="/graph" method="POST">
+			<p class="contentBox" id="subBox"><label for="firstVariable"></label>Select a question or variable for x axis:</label>
+				<select id="firstVariable" name="firstVariable" size="1">
+					<option value="Happiness">Taken all together, how would you say things are in your life these days--would you say that you are (very happy), somewhat happy, or (not too happy)? </option>
+					<option value="FamilyLife">Please tell us whether you are satisfied or dissatisfied with your family life</option>
+					<option value="Finances">Please tell us whether you are satisfied or dissatisfied with your personal financial situation</option>
+					<option value="Employment">Please tell us whether you are satisfied or dissatisfied with your current employment situation</option>
+					<option value="Housing">Please tell us whether you are satisfied or dissatisfied with your current housing situation</option>
+					<option value="Support">Thinking about your personal support network – that is relatives and friends living nearby who you can rely on for help or support – do you have a lot of people you can rely on, a fair amount, just a few, or no people living nearby who you can rely on?</option>
+					<option value="HealthWellness">Are you a member of a health or wellness group</option>
+					<option value="HWFrequency">How often do you participate in meetings with this group?</option>
+					<option value="SocialGroup">Are you a member of a social group</option>
+					<option value="SocialGroupFrequency">How often do you participate in meetings with this group?</option>
+					<option value="ServiceOrganization">Sometimes loneliness is caused by a specific event or condition such as the loss of a spouse or an unexpected illness, and sometimes there doesn’t seem to be a specific reason why people feel lonely. Would you say there is a specific cause for your feelings of loneliness?</option>
+					<option value="SOrganizationFrequency">How often do you participate in meetings with this group?</option>
+					<option value="LonelinessFrequency">How often do you feel lonely?</option>
+					<option value="Companionship">How often do you feel that you lack companionship?</option>
+					<option value="LeftOut">How often do you feel left out?</option>
+					<option value="Isolated">How often do you feel isolated from others?</option>
+					<option value="Lonely">Are you lonely?</option>
+					<option value="Discuss">How many people do you have in your life with whom you can discuss things that are important to you?</option>
+					<option value="Neighbors">How satisfied or dissatisfied are you with the number of meaningful connections you have with your neighbors</option>
+					<option value="Family">How satisfied or dissatisfied are you with the number of meaningful connections you have with family</option>
+					<option value="Friends">How satisfied or dissatisfied are you with the number of meaningful connections you have with friends</option>
+					<option value="FamilyInPerson">Other than family members you live with, how often, if ever, do you talk with family members in person</option>
+					<option value="FamilyOverPhone">Other than family members you live with, how often, if ever, do you talk with family members over the phone</option>
+					<option value="FamilyOverSocialMedia">Other than family members you live with, how often, if ever, do you talk with family members through email, text or social media</option>
+					<option value="FriendsInPerson">Other than friends you live with, how often, if ever, do you talk with friends in person</option>
+					<option value="FriendsOverPhone">Other than friends you live with, how often, if ever, do you talk with friends over the phone</option>
+					<option value="FriendsOverSocialMedia">Other than friends you live with, how often, if ever, do you talk with friends through email, text or social media</option>
+					<option value="Problem">How much have you heard or read about the problems of loneliness and social isolation in the US</option>
+					<option value="PublicOrIndividual">Do you think that loneliness and social isolation is more of a public health problem or an individual one?</option>
+					<option value="Government">How much of a role should the government play in helping reduce loneliness and social isolation?</option>
+					<option value="Individuals">How much of a role should individuals and families play in helping reduce loneliness and social isolation?</option>
+					<option value="Nonprofits">How much of a role should nonprofits and charities play in helping reduce loneliness and social isolation?</option>
+					<option value="Churches">How much of a role should churches play in helping reduce loneliness and social isolation?</option>
+					<option value="Factors">In general, do you think people who are lonely mostly have themselves to blame for their own loneliness or do you think loneliness is usually due to factors and circumstances beyond a person’s control? </option>
+					<option value="MovingAway">Is more people moving away from where they grew up a major/minor reson that people are socially isolated?</option>
+					<option value="GovernmentCuts">Is cuts in government programs a major/minor reson that people are socially isolated?</option>
+					<option value="Technology">Is increased use of technology a major/minor reson that people are socially isolated?</option>
+					<option value="AgingParents">Is adult children playing less a role in helping aging parents a major/minor reson that people are socially isolated?</option>
+					<option value="Unemployment">Is long term unemployment a major/minor reson that people are socially isolated?</option>
+					<option value="Internet">Do you use the internet?</option>
+					<option value="SocialMedia">Do you use social media?</option>
+					<option value="SocialMediaFrequency">How often do you use social media?</option>
+					<option value="SocialMediaHours">How much time do you spend using social media?</option>
+					<option value="LookingOrEngaging">Is the time you spend on social media spent looking at what others are doing or engaging in conversations with other people?</option>
+					<option value="Connections">Do you feel like your ability to connect with people is weakened or strengthened by social media?</option>
+					<option value="LonelinessAndSocialMedia">Do you feel like your own feelings of loneliness are made better or worse by social media?</option>
+					<option value="OnlineVsPhone">After interacting with a friend online are you more or less satisfied than interacting with them on the phone?</option>
+					<option value="OnlineVsInPerson">After interacting with a friend online are you more or less satisfied than interacting with them in person?</option>
+					<option value="RecommendInternet">In general, if a friend were experiencing loneliness, would you recommend they use the internet as a way to help with their loneliness or not?</option>
+					<option value="SpendTime">Do you think that technology in general has made it easier or harder to spend time with your friends and family in person?</option>
+					<option value="BigProblem">How big a problem would you say being lonely is for you?</option>
+					<option value="Cause">Sometimes loneliness is caused by a specific event or condition such as the loss of a spouse or an unexpected illness, and sometimes there doesn’t seem to be a specific reason why people feel lonely. Would you say there is a specific cause for your feelings of loneliness, or not? </option>
+					<option value="Continuous">Is loneliness a feeling that comes and goes or is it continuous?</option>
+					<option value="LengthLonely">How long have you felt lonely or isolated?</option>
+					<option value="ImpactPersonalRelationships">Do you think feeling lonely has had a postive/negative/no impact on your personal relationships?</option>
+					<option value="ImpactJob">Do you think feeling lonely has had a postive/negative/no impact on your ability to do your job?</option>
+					<option value="ImpactPhysicalHealth">Do you think feeling lonely has had a postive/negative/no impact on your physical health?</option>
+					<option value="ImpactMentalHealth">Do you think feeling lonely has had a postive/negative/no impact on your mental health?</option>
+					<option value="TalkFriend">When you are feeling lonely, how often do you talk to a friend or relative?</option>
+					<option value="VisitPublic">When you are feeling lonely, how often do you visit a community center or other public place?</option>
+					<option value="Counselor">When you are feeling lonely, how often do you call a support line or counselor</option>
+					<option value="Exercise">When you are feeling lonely, how often do you exercise?</option>
+					<option value="Drugs">When you are feeling lonely, how often do you abuse alcohol or drugs?</option>
+					<option value="Cigarettes">When you are feeling lonely, how often do you smoke cigarettes or use other tobacco products?</option>
+					<option value="Overeat">When you are feeling lonely, how often do you overeat?</option>
+					<option value="Past">When you are feeling lonely, how often do you relive memories from the past?</option>
+					<option value="Browse">When you are feeling lonely, how often do you browse the internet or social media sites?</option>
+					<option value="Distract">When you are feeling lonely, how often do you distract yourself with television, computer or video games?</option>
+					<option value="Talk">Have you ever talked with someone about your feelings of loneliness?</option>
+					<option value="Doctor">Did you talk to a doctor or other health professional?</option>
+					<option value="CloseFriend">Did you talk to a close friend?</option>
+					<option value="FamilyMember">Did you talk to a family member?</option>
+					<option value="MentalHealthProfessional">Did you talk to a mental health professional?</option>
+					<option value="Advisor">Did you talk to a religious or spiritual advisor?</option>
+					<option value="Helpful">How helpful was it to talk with someone about your feelings of loneliness?</option>
+					<option value="WhoToTalkTo">Have you not talked to anyone about your feelings of loneliness because you don't know who to talk to?</option>
+					<option value="ProblemNotBad">Have you not talked to anyone about your feelings of loneliness because you don't think the problem is that bad?</option>
+					<option value="HaveTime">Have you not talked to anyone about your feelings of loneliness because you don't have the time?</option>
+					<option value="Energy">Have you not talked to anyone about your feelings of loneliness because you don't have the energy?</option>
+					<option value="HandleOnYourOwn">Have you not talked to anyone about your feelings of loneliness because you think you should be able to handle it on your own?</option>
+					<option value="Afford">Have you not talked to anyone about your feelings of loneliness because you don't think you can afford to talk to a professional?</option>
+					<option value="ViolentAct">Have feelings of loneliness or isolation ever led you to think about committing a violent act?</option>
+					<option value="HarmingYourself">Have feelings of loneliness or isolation ever led you to think about harming yourself?</option>
+				</select>
+				</p>
+			<p class="contentBox" id="subBox">Select a question or variable for y axis:
+				<select id="secondVariable" name="secondVariable" size="1">
+					<option value="NONE"> None (single-variable chart)</option>
+					<option value="Happiness">Taken all together, how would you say things are in your life these days--would you say that you are (very happy), somewhat happy, or (not too happy)? </option>
+					<option value="FamilyLife">Please tell us whether you are satisfied or dissatisfied with your family life</option>
+					<option value="Finances">Please tell us whether you are satisfied or dissatisfied with your personal financial situation</option>
+					<option value="Employment">Please tell us whether you are satisfied or dissatisfied with your current employment situation</option>
+					<option value="Housing">Please tell us whether you are satisfied or dissatisfied with your current housing situation</option>
+					<option value="Support">Thinking about your personal support network – that is relatives and friends living nearby who you can rely on for help or support – do you have a lot of people you can rely on, a fair amount, just a few, or no people living nearby who you can rely on?</option>
+					<option value="HealthWellness">Are you a member of a health or wellness group</option>
+					<option value="HWFrequency">How often do you participate in meetings with this group?</option>
+					<option value="SocialGroup">Are you a member of a social group</option>
+					<option value="SocialGroupFrequency">How often do you participate in meetings with this group?</option>
+					<option value="ServiceOrganization">Sometimes loneliness is caused by a specific event or condition such as the loss of a spouse or an unexpected illness, and sometimes there doesn’t seem to be a specific reason why people feel lonely. Would you say there is a specific cause for your feelings of loneliness?</option>
+					<option value="SOrganizationFrequency">How often do you participate in meetings with this group?</option>
+					<option value="LonelinessFrequency">How often do you feel lonely?</option>
+					<option value="Companionship">How often do you feel that you lack companionship?</option>
+					<option value="LeftOut">How often do you feel left out?</option>
+					<option value="Isolated">How often do you feel isolated from others?</option>
+					<option value="Lonely">Are you lonely?</option>
+					<option value="Discuss">How many people do you have in your life with whom you can discuss things that are important to you?</option>
+					<option value="Neighbors">How satisfied or dissatisfied are you with the number of meaningful connections you have with your neighbors</option>
+					<option value="Family">How satisfied or dissatisfied are you with the number of meaningful connections you have with family</option>
+					<option value="Friends">How satisfied or dissatisfied are you with the number of meaningful connections you have with friends</option>
+					<option value="FamilyInPerson">Other than family members you live with, how often, if ever, do you talk with family members in person</option>
+					<option value="FamilyOverPhone">Other than family members you live with, how often, if ever, do you talk with family members over the phone</option>
+					<option value="FamilyOverSocialMedia">Other than family members you live with, how often, if ever, do you talk with family members through email, text or social media</option>
+					<option value="FriendsInPerson">Other than friends you live with, how often, if ever, do you talk with friends in person</option>
+					<option value="FriendsOverPhone">Other than friends you live with, how often, if ever, do you talk with friends over the phone</option>
+					<option value="FriendsOverSocialMedia">Other than friends you live with, how often, if ever, do you talk with friends through email, text or social media</option>
+					<option value="Problem">How much have you heard or read about the problems of loneliness and social isolation in the US</option>
+					<option value="PublicOrIndividual">Do you think that loneliness and social isolation is more of a public health problem or an individual one?</option>
+					<option value="Government">How much of a role should the government play in helping reduce loneliness and social isolation?</option>
+					<option value="Individuals">How much of a role should individuals and families play in helping reduce loneliness and social isolation?</option>
+					<option value="Nonprofits">How much of a role should nonprofits and charities play in helping reduce loneliness and social isolation?</option>
+					<option value="Churches">How much of a role should churches play in helping reduce loneliness and social isolation?</option>
+					<option value="Factors">In general, do you think people who are lonely mostly have themselves to blame for their own loneliness or do you think loneliness is usually due to factors and circumstances beyond a person’s control? </option>
+					<option value="MovingAway">Is more people moving away from where they grew up a major/minor reson that people are socially isolated?</option>
+					<option value="GovernmentCuts">Is cuts in government programs a major/minor reson that people are socially isolated?</option>
+					<option value="Technology">Is increased use of technology a major/minor reson that people are socially isolated?</option>
+					<option value="AgingParents">Is adult children playing less a role in helping aging parents a major/minor reson that people are socially isolated?</option>
+					<option value="Unemployment">Is long term unemployment a major/minor reson that people are socially isolated?</option>
+					<option value="Internet">Do you use the internet?</option>
+					<option value="SocialMedia">Do you use social media?</option>
+					<option value="SocialMediaFrequency">How often do you use social media?</option>
+					<option value="SocialMediaHours">How much time do you spend using social media?</option>
+					<option value="LookingOrEngaging">Is the time you spend on social media spent looking at what others are doing or engaging in conversations with other people?</option>
+					<option value="Connections">Do you feel like your ability to connect with people is weakened or strengthened by social media?</option>
+					<option value="LonelinessAndSocialMedia">Do you feel like your own feelings of loneliness are made better or worse by social media?</option>
+					<option value="OnlineVsPhone">After interacting with a friend online are you more or less satisfied than interacting with them on the phone?</option>
+					<option value="OnlineVsInPerson">After interacting with a friend online are you more or less satisfied than interacting with them in person?</option>
+					<option value="RecommendInternet">In general, if a friend were experiencing loneliness, would you recommend they use the internet as a way to help with their loneliness or not?</option>
+					<option value="SpendTime">Do you think that technology in general has made it easier or harder to spend time with your friends and family in person?</option>
+					<option value="BigProblem">How big a problem would you say being lonely is for you?</option>
+					<option value="Cause">Sometimes loneliness is caused by a specific event or condition such as the loss of a spouse or an unexpected illness, and sometimes there doesn’t seem to be a specific reason why people feel lonely. Would you say there is a specific cause for your feelings of loneliness, or not? </option>
+					<option value="Continuous">Is loneliness a feeling that comes and goes or is it continuous?</option>
+					<option value="LengthLonely">How long have you felt lonely or isolated?</option>
+					<option value="ImpactPersonalRelationships">Do you think feeling lonely has had a postive/negative/no impact on your personal relationships?</option>
+					<option value="ImpactJob">Do you think feeling lonely has had a postive/negative/no impact on your ability to do your job?</option>
+					<option value="ImpactPhysicalHealth">Do you think feeling lonely has had a postive/negative/no impact on your physical health?</option>
+					<option value="ImpactMentalHealth">Do you think feeling lonely has had a postive/negative/no impact on your mental health?</option>
+					<option value="TalkFriend">When you are feeling lonely, how often do you talk to a friend or relative?</option>
+					<option value="VisitPublic">When you are feeling lonely, how often do you visit a community center or other public place?</option>
+					<option value="Counselor">When you are feeling lonely, how often do you call a support line or counselor</option>
+					<option value="Exercise">When you are feeling lonely, how often do you exercise?</option>
+					<option value="Drugs">When you are feeling lonely, how often do you abuse alcohol or drugs?</option>
+					<option value="Cigarettes">When you are feeling lonely, how often do you smoke cigarettes or use other tobacco products?</option>
+					<option value="Overeat">When you are feeling lonely, how often do you overeat?</option>
+					<option value="Past">When you are feeling lonely, how often do you relive memories from the past?</option>
+					<option value="Browse">When you are feeling lonely, how often do you browse the internet or social media sites?</option>
+					<option value="Distract">When you are feeling lonely, how often do you distract yourself with television, computer or video games?</option>
+					<option value="Talk">Have you ever talked with someone about your feelings of loneliness?</option>
+					<option value="Doctor">Did you talk to a doctor or other health professional?</option>
+					<option value="CloseFriend">Did you talk to a close friend?</option>
+					<option value="FamilyMember">Did you talk to a family member?</option>
+					<option value="MentalHealthProfessional">Did you talk to a mental health professional?</option>
+					<option value="Advisor">Did you talk to a religious or spiritual advisor?</option>
+					<option value="Helpful">How helpful was it to talk with someone about your feelings of loneliness?</option>
+					<option value="WhoToTalkTo">Have you not talked to anyone about your feelings of loneliness because you don't know who to talk to?</option>
+					<option value="ProblemNotBad">Have you not talked to anyone about your feelings of loneliness because you don't think the problem is that bad?</option>
+					<option value="HaveTime">Have you not talked to anyone about your feelings of loneliness because you don't have the time?</option>
+					<option value="Energy">Have you not talked to anyone about your feelings of loneliness because you don't have the energy?</option>
+					<option value="HandleOnYourOwn">Have you not talked to anyone about your feelings of loneliness because you think you should be able to handle it on your own?</option>
+					<option value="Afford">Have you not talked to anyone about your feelings of loneliness because you don't think you can afford to talk to a professional?</option>
+					<option value="ViolentAct">Have feelings of loneliness or isolation ever led you to think about committing a violent act?</option>
+					<option value="HarmingYourself">Have feelings of loneliness or isolation ever led you to think about harming yourself?</option>
+				</select>
+			</p>
+			<input class="goButton" type="submit" value="submit">
+		</form>
+	</div>
+
+
+
+</body>
+</html>
