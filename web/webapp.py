@@ -13,14 +13,24 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 def home():
     return render_template('homepage.html')
 
-@app.route('/aboutData')
+@app.route('/aboutdata')
 def about_data():
-    return render_template('abooutdata.html')
+    return render_template('aboutdata.html')
 
 @app.route('/graph', methods=['POST', 'GET'])
 def get_graph():
-    if request.methods == 'POST':
+    if request.method == 'POST':
         result = request.form
         datasource = DataSource();
-        datasource.plot_data(result)
-    return render_template('result.html, results=result')
+        print(result)
+        datasource.plot_data(result['firstVariable'], result['secondVariable'])
+    return render_template('plot.html')
+    
+if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)
+        exit()
+
+    host = sys.argv[1]
+    port = sys.argv[2]
+    app.run(host=host, port=port)
