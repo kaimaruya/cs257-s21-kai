@@ -47,6 +47,11 @@ class DataSource:
         Returns:
             A list of single-element tuples each containing the count for one answer.
         '''
+        
+        if not self.__is_valid_query(question):
+            print("Error: " + question + " is not a valid question")
+            return None
+        
         answers = self.get_answers(question)
         try:
             cursor = self.connection.cursor()
@@ -75,6 +80,11 @@ class DataSource:
         Returns:
             A list of the answers given
         '''
+        
+        if not self.__is_valid_query(question):
+            print("Error: " + question + " is not a valid question")
+            return None
+        
         try:
             cursor = self.connection.cursor()
             query = "SELECT DISTINCT " + question + " FROM lonelinesssurveyshort WHERE NOT(" + question + "=' ') ;"
@@ -99,6 +109,11 @@ class DataSource:
         Returns:
             A float containing the probability of both answers occuring together
         '''
+        
+        if not self.__is_valid_query(question):
+            print("Error: " + question + " is not a valid question")
+            return None
+        
         try:
             cursor = self.connection.cursor()
             query = "SELECT COUNT(*) FROM lonelinesssurveyshort WHERE " + first_question + "='" + first_answer + "' AND " + second_question + "='" + second_answer + "'"
@@ -121,7 +136,14 @@ class DataSource:
             
         Returns:
             the full version of the name
+        
+        Doesn't work, not really sure why. Kept around for future use
         '''
+        
+        if not self.__is_valid_query(alias):
+            print("Error: " + alias + " is not a valid alias")
+            return None
+        
         try:
             cursor = self.connection.cursor()
             query = "SELECT fullname FROM aliases WHERE id = '" + alias + "';"
@@ -159,7 +181,8 @@ class DataSource:
             question - The question whose answers are to be graphed.
         '''
         self.ax = self.fig.add_axes([0,0,1,1])
-        self.ax.bar(self.get_answers(question), self.get_data(question))
+        data = self.get_data(question)
+        bar = self.ax.bar(self.get_answers(question), data)
         self.ax.set_xlabel(question)
         plt.setp(self.ax.get_xticklabels(), rotation=45, ha="right",
              rotation_mode="anchor")
@@ -194,6 +217,22 @@ class DataSource:
         self.fig.tight_layout()
         plt.show()
         self.fig.suptitle("Probability of a response to the second question given a response to the first question")
+        
+    def __is_valid_query(self, question):
+        try:
+            cursor = self.connection.cursor()
+            query = "SELECT id FROM aliases;"
+            cursor.execute(query)
+            valid_questions = cursor.fetchall()
+            isQueryValid = False
+            for valid_question in valid_questions:
+                if valid_question[0] == question:
+                    isQueryValid = True
+            return isQueryValid
+        except Exception as e:
+            print("Something went wrong when executing the validity check: ", e)
+            return None
+        
         
         
     

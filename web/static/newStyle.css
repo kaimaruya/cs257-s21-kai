@@ -123,7 +123,7 @@ div.save:hover {
         color: rgb(140, 187, 221);
     }
     
-    #figureBox {
+    #wideBox {
         width: auto;
     }
 
@@ -135,7 +135,7 @@ div.save:hover {
 
     #subBox {
         float: center;
-        margin: 1px;
+        margin: 0 auto;
         width: 95%;
     }
     
@@ -153,7 +153,16 @@ div.save:hover {
     .button a {
         color:rgb(56,60,62);
     }
-.goButton {
+    
+.submitButton {
+    border-radius:5px;
+    border: 0.25em;
+    display: block;
+    margin: 0 auto;
+    font-size: 2em;
+    border-color:rgb(93, 139, 18);
+    background-color:rgb(192, 255, 0);
+    color:rgb(56,60,62);
 }
 
 

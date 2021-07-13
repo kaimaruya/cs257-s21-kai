@@ -28,12 +28,12 @@
 		<p>This site will allow users to investigate the relationships between loneliness and isolation by generating plots for different variables, 
 			other habits and lifestyle choices, and general happiness and contentment, in order to encourage thinking about how these things impact each other and our daily lives.
 		</p>
-	</div>
+	  </div>
 
 	<div  class="contentBox" id="selectorBox">
 		<h3 class="contentBox" id="boxTitle">Select Questions and Make a Graph</h2>
 		<form action="/graph" method="POST">
-			<p class="contentBox" id="subBox"><label for="firstVariable"></label>Select a question or variable for x axis:</label>
+			<p class="contentBox" id="subBox"><label for="firstVariable"></label>First (or only) question:</label>
 				<select id="firstVariable" name="firstVariable" size="1">
           <option value="happiness">Taken all together, how would you say things are in your life these days--would you say that you are very happy, somewhat happy, or not too happy? </option>
           <option value="familylife">Please tell us whether you are satisfied or dissatisfied with your family life</option>
@@ -45,7 +45,7 @@
           <option value="hwfrequency">How often do you participate in meetings with this group?</option>
           <option value="socialgroup">Are you a member of a social group</option>
           <option value="socialgroupfrequency">How often do you participate in meetings with this group?</option>
-          <option value="serviceorganization">Sometimes loneliness is caused by a specific event or condition such as the loss of a spouse or an unexpected illness, and sometimes there doesn’t seem to be a specific reason why people feel lonely. Would you say there is a specific cause for your feelings of loneliness?</option>
+          <option value="serviceorganization">Are you a member of a service organization?</option>
           <option value="sorganizationfrequency">How often do you participate in meetings with this group?</option>
           <option value="lonelinessfrequency">How often do you feel lonely?</option>
           <option value="companionship">How often do you feel that you lack companionship?</option>
@@ -120,7 +120,7 @@
           <option value="harmingyourself">Have feelings of loneliness or isolation ever led you to think about harming yourself?</option>
 				</select>
 				</p>
-			<p class="contentBox" id="subBox">Select a question or variable for y axis:
+			<p class="contentBox" id="subBox">Second question (optional):
 				<select id="secondVariable" name="secondVariable" size="1">
   				<option value="NONE">None (single-variable graph)</option>
           <option value="happiness">Taken all together, how would you say things are in your life these days--would you say that you are very happy, somewhat happy, or not too happy? </option>
@@ -133,7 +133,7 @@
           <option value="hwfrequency">How often do you participate in meetings with this group?</option>
           <option value="socialgroup">Are you a member of a social group</option>
           <option value="socialgroupfrequency">How often do you participate in meetings with this group?</option>
-          <option value="serviceorganization">Sometimes loneliness is caused by a specific event or condition such as the loss of a spouse or an unexpected illness, and sometimes there doesn’t seem to be a specific reason why people feel lonely. Would you say there is a specific cause for your feelings of loneliness?</option>
+          <option value="serviceorganization">Are you a member of a service organization?</option>
           <option value="sorganizationfrequency">How often do you participate in meetings with this group?</option>
           <option value="lonelinessfrequency">How often do you feel lonely?</option>
           <option value="companionship">How often do you feel that you lack companionship?</option>
@@ -208,9 +208,17 @@
           <option value="harmingyourself">Have feelings of loneliness or isolation ever led you to think about harming yourself?</option>
 				</select>
 			</p>
-			<input class="goButton" type="submit" value="submit">
+			<input class="submitButton" type="submit" value="submit">
 		</form>
 	</div>
+ 
+  <div class="contentBox" id="wideBox">
+         <h3>What Are These Plots</h3>
+         <p>This website will generate a bar plot showing how people responded to a given question, or if two questions are select will generate a heatmap, where each cell shows 
+         the probability of a respondant giving any pair of answers (e.g. yes to feeling lonely and no to feeling happy). This can help to indicate correlation and patterns in responses,
+         though with a limited sample size and a wide variety of variables this should of course be taken with a grain of salt.
+         </p>
+  </div>
 
 
 
